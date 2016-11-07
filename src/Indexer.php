@@ -16,7 +16,7 @@ class Indexer {
 
 
     public function indexOneByClass($class, $id) {
-        $model = ($class)::find($id);
+        $model = call_user_func(array($class, 'find'), $id);
         if(in_array(Indexable::class, class_uses($model), true)){
             $this->indexModel($model);
         }
