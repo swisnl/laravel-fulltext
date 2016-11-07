@@ -1,4 +1,4 @@
-# Larevel fulltext index and search
+# Laravel fulltext index and search
 
 This package created a MySQL fulltext index for models and enables you to search through those.
 
@@ -7,7 +7,7 @@ This package created a MySQL fulltext index for models and enables you to search
 ## Installation
 
 1. Install with composer ``composer require swisnl/laravel-fulltext``.
-2. Install service provider ``\Swis\LaravelFulltext\FulltextServiceProvider::class,`` in ``config/app.php``
+2. Install service provider ``Swis\LaravelFulltext\FulltextServiceProvider::class,`` in ``config/app.php``
 3. Publish migrations and config ``php artisan vendor:publish --tag=laravel-fulltext``
 4. Migrate the database ``php artisan migrate``
 
