@@ -1,6 +1,6 @@
 # Laravel fulltext index and search
 
-This package created a MySQL fulltext index for models and enables you to search through those.
+This package creates a MySQL fulltext index for models and enables you to search through those.
 
 [![Build Status](https://travis-ci.org/swisnl/laravel-fulltext.svg?branch=master)](https://travis-ci.org/swisnl/laravel-fulltext)
 
