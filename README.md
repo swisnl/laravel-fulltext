@@ -35,6 +35,19 @@ class Country extends Model
 
 You can use a dot notitation to query relationships for the model, like ``biographies.name``.
 
+
+### Searching 
+
+You can search using the Search class.
+
+```
+$search = new \Swis\LaravelFulltext\Search();
+$search->run('europe');
+```
+
+This will return a Collection of ``\Swis\LaravelFulltext\IndexedRecord`` which contain the models in the Polymorphic relation ``indexable``.
+
+
 ### Commands
 
 
