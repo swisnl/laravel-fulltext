@@ -47,6 +47,8 @@ $search->run('europe');
 
 This will return a Collection of ``\Swis\LaravelFulltext\IndexedRecord`` which contain the models in the Polymorphic relation ``indexable``.
 
+If you only want to search a certain model you can use ``$search->runForClass('europe', Country::class);``. This will only return results from that model.
+
 
 ### Commands
 
