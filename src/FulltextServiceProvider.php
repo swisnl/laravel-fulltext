@@ -23,7 +23,7 @@ class FulltextServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-          __DIR__.'/../../config/laravel-fulltext.php',
+          __DIR__.'/../config/laravel-fulltext.php',
           'laravel-fulltext'
         );
 
@@ -31,14 +31,14 @@ class FulltextServiceProvider extends ServiceProvider
 
             $this->publishes(
               [
-                __DIR__.'/../../config/laravel-fulltext.php' => config_path('laravel-fulltext.php'),
+                __DIR__.'/../config/laravel-fulltext.php' => config_path('laravel-fulltext.php'),
               ],
               'laravel-fulltext'
             );
 
             $this->publishes(
               [
-                __DIR__.'/../../database/migrations' => database_path('migrations'),
+                __DIR__.'/../database/migrations' => database_path('migrations'),
               ],
               'laravel-fulltext'
             );
