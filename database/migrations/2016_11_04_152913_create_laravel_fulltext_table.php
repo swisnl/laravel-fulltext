@@ -24,7 +24,8 @@ class CreateLaravelFulltextTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE laravel_fulltext ADD FULLTEXT text(indexed_title, indexed_content)');
+        DB::statement('ALTER TABLE laravel_fulltext ADD FULLTEXT fulltext_title(indexed_title)');
+        DB::statement('ALTER TABLE laravel_fulltext ADD FULLTEXT fulltext_title_content(indexed_title, indexed_content)');
     }
 
     /**
