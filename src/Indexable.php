@@ -52,10 +52,10 @@ trait Indexable {
             if($this->indexDataIsRelation($column)){
                 $indexData[] = $this->getIndexValueFromRelation($column);
             } else {
-                $indexData[] = $this->{$column};
+                $indexData[] = trim($this->{$column});
             }
         }
-        return implode(' ', $indexData);
+        return implode(' ', array_filter($indexData));
     }
 
     /**
