@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Swis\LaravelFulltext\Commands\Index;
 use Swis\LaravelFulltext\Commands\IndexOne;
 use Swis\LaravelFulltext\Commands\Install;
+use Swis\LaravelFulltext\Commands\UnindexOne;
 
 class FulltextServiceProvider extends ServiceProvider
 {
@@ -13,6 +14,7 @@ class FulltextServiceProvider extends ServiceProvider
     protected $commands = [
       Index::class,
       IndexOne::class,
+      UnindexOne::class,
     ];
 
     /**

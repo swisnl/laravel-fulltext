@@ -14,6 +14,12 @@ class Indexer {
         $model->indexRecord();
     }
 
+    public function unIndexOneByClass($class, $id){
+        $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', $class);
+        if($record->exists){
+            $record->delete();
+        }
+    }
 
     public function indexOneByClass($class, $id) {
         $model = call_user_func(array($class, 'find'), $id);
