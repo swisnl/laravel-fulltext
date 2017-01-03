@@ -31,7 +31,8 @@ class Search
     }
 
     /**
-     * @param \Illuminate\Database\Eloquent\Builder
+     * @param string $search
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function searchQuery($search) {
         $terms = TermBuilder::terms($search);
