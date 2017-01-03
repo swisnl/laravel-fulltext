@@ -30,8 +30,10 @@ class Indexer {
         $model = new $class;
         $self = $this;
         if(in_array(Indexable::class, class_uses($model), true)){
-            $model->all()->each(function($modelRecord) use ($self) {
-                $self->indexModel($modelRecord);
+            $model->chunk(100, function($chunk) use ($self) {
+                foreach($chunk as $modelRecord){
+                    $self->indexModel($modelRecord);
+                }
             });
         }
     }
