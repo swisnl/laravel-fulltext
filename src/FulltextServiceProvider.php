@@ -48,5 +48,9 @@ class FulltextServiceProvider extends ServiceProvider
             $this->commands($this->commands);
         }
 
+        $this->app->bind(
+          SearchInterface::class,
+          Search::class
+        );
     }
 }
