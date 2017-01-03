@@ -74,6 +74,9 @@ trait Indexable {
     protected function getIndexValueFromRelation($column)
     {
         list($relation, $column) = explode('.', $column);
+        if(is_null($this->{$relation})){
+            return '';
+        }
         return $this->{$relation}->pluck($column)->implode(', ');
     }
 }
