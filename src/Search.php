@@ -8,7 +8,7 @@
 
 namespace Swis\LaravelFulltext;
 
-class Search
+class Search implements SearchInterface
 {
     /**
      * @param string $search
