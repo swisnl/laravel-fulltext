@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bjorn
- * Date: 6-11-2016
- * Time: 11:09
- */
-
 namespace Swis\LaravelFulltext;
 
 class Search implements SearchInterface
