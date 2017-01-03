@@ -34,7 +34,7 @@ trait Indexable {
 
     public function indexRecord(){
         if(null === $this->indexedRecord){
-            $this->indexedRecord = IndexedRecord::create();
+            $this->indexedRecord = new IndexedRecord();
             $this->indexedRecord->indexable()->associate($this);
         }
         $this->indexedRecord->updateIndex();
