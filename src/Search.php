@@ -50,7 +50,7 @@ class Search implements SearchInterface
         $titleWeight = str_replace(',', '.', (float) config('laravel-fulltext.weight.title', 1.5));
         $contentWeight = str_replace(',', '.', (float) config('laravel-fulltext.weight.content', 1.0));
 
-        $query = IndexedRecord::query()
+        $query = config('laravel-fulltext.indexed_record_model')::query()
           ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST (? IN BOOLEAN MODE)', [$termsBool])
           ->orderByRaw(
               '('.$titleWeight.' * (MATCH (indexed_title) AGAINST (?)) +

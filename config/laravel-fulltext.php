@@ -24,4 +24,6 @@ return [
      */
     'exclude_feature_enabled' => false,
     'exclude_records_column_name' => 'default_column',
+
+    'indexed_record_model' => \Swis\Laravel\Fulltext\IndexedRecord::class,
 ];

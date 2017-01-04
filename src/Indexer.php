@@ -13,7 +13,8 @@ class Indexer
 
     public function unIndexOneByClass($class, $id)
     {
-        $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', $class);
+        $indexedRecordClass = config('laravel-fulltext.indexed_record_model');
+        $record = $indexedRecordClass::where('indexable_id', $id)->where('indexable_type', $class);
         if ($record->exists) {
             $record->delete();
         }

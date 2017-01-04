@@ -30,13 +30,14 @@ trait Indexable
 
     public function indexedRecord()
     {
-        return $this->morphOne(IndexedRecord::class, 'indexable');
+        return $this->morphOne(config('laravel-fulltext.indexed_record_model'), 'indexable');
     }
 
     public function indexRecord()
     {
         if (null === $this->indexedRecord) {
-            $this->indexedRecord = new IndexedRecord();
+            $indexedRecordClass = config('laravel-fulltext.indexed_record_model');
+            $this->indexedRecord = new $indexedRecordClass();
             $this->indexedRecord->indexable()->associate($this);
         }
         $this->indexedRecord->updateIndex();
@@ -56,11 +57,15 @@ trait Indexable
             if ($this->indexDataIsRelation($column)) {
                 $indexData[] = $this->getIndexValueFromRelation($column);
             } else {
-                $indexData[] = trim($this->{$column});
+                if (is_string($this->{$column})) {
+                    $indexData[] = trim($this->{$column});
+                } else {
+                    $indexData[] = $this->{$column};
+                }
             }
         }
 
-        return implode(' ', array_filter($indexData));
+        return implode(' ', array_filter($indexData)).' ';
     }
 
     /**
