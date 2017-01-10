@@ -50,14 +50,15 @@ class Search implements SearchInterface
         $titleWeight = str_replace(',', '.', (float) config('laravel-fulltext.weight.title', 1.5));
         $contentWeight = str_replace(',', '.', (float) config('laravel-fulltext.weight.content', 1.0));
 
-        $query = config('laravel-fulltext.indexed_record_model')::query()
-          ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST (? IN BOOLEAN MODE)', [$termsBool])
+        $indexedRecordClass = config('laravel-fulltext.indexed_record_model');
+        $pdo = $indexedRecordClass::getConnectionResolver()->connection()->getPdo();
+        $query = $indexedRecordClass::query()
+          ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST ('.$pdo->quote($termsBool).' IN BOOLEAN MODE)')
           ->orderByRaw(
-              '('.$titleWeight.' * (MATCH (indexed_title) AGAINST (?)) +
-              '.$contentWeight.' * (MATCH (indexed_title, indexed_content) AGAINST (?))
-             ) DESC',
-                [$termsMatch, $termsMatch])
-            ->limit(config('laravel-fulltext.limit-results'));
+              '('.$titleWeight.' * (MATCH (indexed_title) AGAINST ('.$pdo->quote($termsMatch).')) +
+              '.$contentWeight.' * (MATCH (indexed_title, indexed_content) AGAINST ('.$pdo->quote($termsMatch).'))
+             ) DESC')
+          ->limit(config('laravel-fulltext.limit-results'));
 
         if (config('laravel-fulltext.exclude_feature_enabled')) {
             $query->with(['indexable' => function ($query) {
