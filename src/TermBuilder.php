@@ -13,7 +13,7 @@ class TermBuilder
         // else we will break the MySQL query.
         $search = trim(preg_replace('/[+\-><\(\)~*\"@]+/', ' ', $search));
 
-        $terms = collect(preg_split('/[\s,]+/', $search));
+        $terms = collect(preg_split('/[\s,]+/', trim($search)));
 
         if ($wildcards === true) {
             $terms->transform(function ($term) {
