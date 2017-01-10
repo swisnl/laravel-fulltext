@@ -7,6 +7,7 @@ class TermBuilder
     public static function terms($search)
     {
         $wildcards = config('laravel-fulltext.enable_wildcards');
+        $search = str_replace(['-', '.', '+', '<', '>', '(', ')', '*'], '', $search);
 
         // Remove every boolean operator (+, -, > <, ( ), ~, *, ", @distance) from the search query
         // else we will break the MySQL query.
