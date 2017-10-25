@@ -33,11 +33,14 @@ class Search implements SearchInterface
         $termsMatch = ''.$terms->implode(' ');
         $termsBool = '+'.$terms->implode(' +');
 
+        $titleWeight = str_replace(',', '.', (float)config('laravel-fulltext.weight.title', 1.5));
+        $contentWeight = str_replace(',', '.', (float)config('laravel-fulltext.weight.content', 1.0));
+
         $query = \Swis\LaravelFulltext\IndexedRecord::query()
           ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST (? IN BOOLEAN MODE)', [$termsBool])
           ->orderByRaw(
-            '(' . (float) config('laravel-fulltext.weight.title', 1.5)   . ' * (MATCH (indexed_title) AGAINST (?)) +
-              ' . (float) config('laravel-fulltext.weight.content', 1.0) . ' * (MATCH (indexed_title, indexed_content) AGAINST (?))
+            '(' .$titleWeight. ' * (MATCH (indexed_title) AGAINST (?)) +
+              ' . $contentWeight. ' * (MATCH (indexed_title, indexed_content) AGAINST (?))
              ) DESC',
             [$termsMatch, $termsMatch]
           )
