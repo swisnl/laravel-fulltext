@@ -12,5 +12,5 @@ return [
   /**
    *  Enable wildcard after words
    */
-  'enable_wildcards' => false,
+  'enable_wildcards' => true,
 ];
