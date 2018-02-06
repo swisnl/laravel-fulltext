@@ -20,7 +20,6 @@
         }
     ],
     "minimum-stability": "stable",
-
     "autoload": {
         "psr-4": {
             "Swis\\LaravelFulltext\\": "src/"
@@ -29,6 +28,13 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Swis\\LaravelFulltext\\FulltextServiceProvider"
+            ]
         }
     }
 }
