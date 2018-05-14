@@ -28,10 +28,15 @@ class Search implements SearchInterface
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function searchQuery($search) {
-        $terms = TermBuilder::terms($search);
+        $termsBool = '';
+        $termsMatch = '';
 
-        $termsMatch = ''.$terms->implode(' ');
-        $termsBool = '+'.$terms->implode(' +');
+        if ($search) {
+            $terms = TermBuilder::terms($search);
+
+            $termsBool = '+'.$terms->implode(' +');
+            $termsMatch = ''.$terms->implode(' ');
+        }
 
         $titleWeight = str_replace(',', '.', (float)config('laravel-fulltext.weight.title', 1.5));
         $contentWeight = str_replace(',', '.', (float)config('laravel-fulltext.weight.content', 1.0));
