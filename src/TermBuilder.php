@@ -9,10 +9,11 @@ class TermBuilder {
         $terms = collect(preg_split('/[\s,]+/', $search));
 
         if($wildcards === true){
-            $terms->each(function($part){
-                return $part . '*';
+            $terms->transform(function($term){
+                return $term. '*';
             });
         }
+
         return $terms;
     }
 
