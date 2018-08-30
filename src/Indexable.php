@@ -1,8 +1,8 @@
 <?php
 namespace Swis\LaravelFulltext;
 
-use Swis\LaravelFulltext\ModelObserver;
-use Swis\LaravelFulltext\IndexedRecord;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class Indexable
@@ -77,6 +77,12 @@ trait Indexable {
         if(is_null($this->{$relation})){
             return '';
         }
+
+        $relationship = $this->{$relation}();
+        if ($relationship instanceof BelongsTo || $relationship instanceof HasOne) {
+            return $this->{$relation}->{$column};
+        }
+
         return $this->{$relation}->pluck($column)->implode(', ');
     }
 }
