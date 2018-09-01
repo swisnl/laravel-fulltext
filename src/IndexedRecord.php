@@ -12,6 +12,7 @@ class IndexedRecord extends Model {
     }
 
     public function updateIndex(){
+        $this->refresh();
         $this->setAttribute('indexed_title', $this->indexable->getIndexTitle());
         $this->setAttribute('indexed_content', $this->indexable->getIndexContent());
         $this->save();
