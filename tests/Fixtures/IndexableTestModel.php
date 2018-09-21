@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Fixtures;
+namespace Swis\LaravelFulltext\Tests\Fixtures;
 
 use Swis\LaravelFulltext\Indexable;
 

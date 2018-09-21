@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Swis\LaravelFulltext\Tests;
 
 use Mockery;
 use Swis\LaravelFulltext\ModelObserver;

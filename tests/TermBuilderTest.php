@@ -1,5 +1,6 @@
 <?php
-namespace Tests;
+
+namespace Swis\LaravelFulltext\Tests;
 
 use Swis\LaravelFulltext\TermBuilder;
 

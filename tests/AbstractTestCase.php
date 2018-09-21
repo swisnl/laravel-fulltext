@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Swis\LaravelFulltext\Tests;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
