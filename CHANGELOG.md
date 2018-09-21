@@ -13,7 +13,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 * Rename tests namespace.
 * Improve README and other documentation.
 
-## Fixed
+### Fixed
 
 * Add missing dependency to composer.json.
 
