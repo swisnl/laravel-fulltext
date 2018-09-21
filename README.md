@@ -1,10 +1,14 @@
 # Laravel fulltext index and search
 
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![Total Downloads][ico-downloads]][link-downloads]
+[![Made by SWIS][ico-swis]][link-swis]
+
 This package creates a MySQL fulltext index for models and enables you to search through those.
 
-[![Build Status](https://travis-ci.org/swisnl/laravel-fulltext.svg?branch=master)](https://travis-ci.org/swisnl/laravel-fulltext)
-
-## Installation
+## Install
 
 1. Install with composer ``composer require swisnl/laravel-fulltext``.
 2. Publish migrations and config ``php artisan vendor:publish --tag=laravel-fulltext``
@@ -99,3 +103,43 @@ Results on ``title`` or ``content`` are weighted in the results. Search result s
 ### enable_wildcards
 
 Enable wildcard after words. So when searching for for example  ``car`` it will also match ``carbon``. 
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+
+## Security
+
+If you discover any security related issues, please email security@swis.nl instead of using the issue tracker.
+
+## Credits
+
+- [Björn Brala][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## SWIS
+
+[SWIS][link-swis] is a web agency from Leiden, the Netherlands. We love working with open source software.
+
+[ico-version]: https://img.shields.io/packagist/v/swisnl/laravel-fulltext.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/swisnl/laravel-fulltext/master.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/swisnl/laravel-fulltext.svg?style=flat-square
+[ico-swis]: https://img.shields.io/badge/%F0%9F%9A%80-made%20by%20SWIS-%23D9021B.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/swisnl/laravel-fulltext
+[link-travis]: https://travis-ci.org/swisnl/laravel-fulltext
+[link-downloads]: https://packagist.org/packages/swisnl/laravel-fulltext
+[link-author]: https://github.com/swisnl
+[link-contributors]: ../../contributors
+[link-swis]: https://www.swis.nl
