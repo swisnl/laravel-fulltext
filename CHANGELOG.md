@@ -4,6 +4,28 @@ All notable changes to `laravel-fulltext` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.14.0] - 2018-09-21
+
+### Changed
+
+* Run tests on multiple PHP and Laravel versions.
+* Restrict Laravel versions to `^5.1,<5.8`.
+* Rename tests namespace.
+* Improve README and other documentation.
+
+## Fixed
+
+* Add missing dependency to composer.json.
+
+### Added
+
+* Code style checker/fixer.
+* Add CHANGELOG.
+
+### Removed
+
+* Drop PHP 5.6 support.
+
 ## [0.13.0] - 2018-08-30
 
 ### Fixed
