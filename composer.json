@@ -4,6 +4,7 @@
     "type": "library",
     "require": {
         "php": ">=7.0",
+        "illuminate/console": "~5.1|5.2|5.3",
         "illuminate/contracts": "~5.1|5.2|5.3",
         "illuminate/database": "~5.1|5.2|5.3",
         "illuminate/support": "~5.1|5.2|5.3"
