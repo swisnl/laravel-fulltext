@@ -1,11 +1,12 @@
 <?php
+
 namespace Swis\LaravelFulltext\Commands;
 
 use Illuminate\Console\Command;
 use Swis\LaravelFulltext\Indexer;
 
-class Index extends Command {
-
+class Index extends Command
+{
     protected $signature = 'laravel-fulltext:all {model_class}';
 
     /**

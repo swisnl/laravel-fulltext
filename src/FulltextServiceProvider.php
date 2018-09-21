@@ -5,12 +5,10 @@ namespace Swis\LaravelFulltext;
 use Illuminate\Support\ServiceProvider;
 use Swis\LaravelFulltext\Commands\Index;
 use Swis\LaravelFulltext\Commands\IndexOne;
-use Swis\LaravelFulltext\Commands\Install;
 use Swis\LaravelFulltext\Commands\UnindexOne;
 
 class FulltextServiceProvider extends ServiceProvider
 {
-
     protected $commands = [
       Index::class,
       IndexOne::class,
@@ -25,32 +23,31 @@ class FulltextServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-          __DIR__.'/../config/laravel-fulltext.php',
-          'laravel-fulltext'
+            __DIR__.'/../config/laravel-fulltext.php',
+            'laravel-fulltext'
         );
 
         if ($this->app->runningInConsole()) {
-
             $this->publishes(
-              [
+                [
                 __DIR__.'/../config/laravel-fulltext.php' => config_path('laravel-fulltext.php'),
-              ],
-              'laravel-fulltext'
+                ],
+                'laravel-fulltext'
             );
 
             $this->publishes(
-              [
+                [
                 __DIR__.'/../database/migrations' => database_path('migrations'),
-              ],
-              'laravel-fulltext'
+                ],
+                'laravel-fulltext'
             );
 
             $this->commands($this->commands);
         }
 
         $this->app->bind(
-          SearchInterface::class,
-          Search::class
+            SearchInterface::class,
+            Search::class
         );
     }
 }

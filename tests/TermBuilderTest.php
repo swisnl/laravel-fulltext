@@ -4,8 +4,8 @@ namespace Swis\LaravelFulltext\Tests;
 
 use Swis\LaravelFulltext\TermBuilder;
 
-class TermBuilderTest extends AbstractTestCase {
-
+class TermBuilderTest extends AbstractTestCase
+{
     public function test_termbuilder_builds_terms_array()
     {
         $configReturn= false;

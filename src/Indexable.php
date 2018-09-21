@@ -1,55 +1,58 @@
 <?php
+
 namespace Swis\LaravelFulltext;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-/**
- * Class Indexable
- *
- * @package Swis\LaravelFulltextServiceProvider
- */
-trait Indexable {
-
+trait Indexable
+{
     /**
      * Boot the trait.
      *
      * @return void
      */
-    public static function bootIndexable(){
+    public static function bootIndexable()
+    {
         static::observe(new ModelObserver);
     }
 
-    public function getIndexContent(){
+    public function getIndexContent()
+    {
         return $this->getIndexDataFromColumns($this->indexContentColumns);
     }
 
-    public function getIndexTitle(){
+    public function getIndexTitle()
+    {
         return $this->getIndexDataFromColumns($this->indexTitleColumns);
     }
 
-    public function indexedRecord(){
+    public function indexedRecord()
+    {
         return $this->morphOne('Swis\LaravelFulltext\IndexedRecord', 'indexable');
     }
 
-    public function indexRecord(){
-        if(null === $this->indexedRecord){
+    public function indexRecord()
+    {
+        if (null === $this->indexedRecord) {
             $this->indexedRecord = new IndexedRecord();
             $this->indexedRecord->indexable()->associate($this);
         }
         $this->indexedRecord->updateIndex();
     }
 
-    public function unIndexRecord(){
-        if(null !== $this->indexedRecord){
+    public function unIndexRecord()
+    {
+        if (null !== $this->indexedRecord) {
             $this->indexedRecord->delete();
         }
     }
 
-    protected function getIndexDataFromColumns($columns){
+    protected function getIndexDataFromColumns($columns)
+    {
         $indexData = [];
-        foreach($columns as $column){
-            if($this->indexDataIsRelation($column)){
+        foreach ($columns as $column) {
+            if ($this->indexDataIsRelation($column)) {
                 $indexData[] = $this->getIndexValueFromRelation($column);
             } else {
                 $indexData[] = trim($this->{$column});
@@ -74,7 +77,7 @@ trait Indexable {
     protected function getIndexValueFromRelation($column)
     {
         list($relation, $column) = explode('.', $column);
-        if(is_null($this->{$relation})){
+        if (is_null($this->{$relation})) {
             return '';
         }
 

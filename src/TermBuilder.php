@@ -1,9 +1,11 @@
 <?php
+
 namespace Swis\LaravelFulltext;
 
-class TermBuilder {
-
-    public static function terms($search){
+class TermBuilder
+{
+    public static function terms($search)
+    {
         $wildcards = config('laravel-fulltext.enable_wildcards');
 
         // Remove every boolean operator (+, -, > <, ( ), ~, *, ", @distance) from the search query
@@ -12,13 +14,12 @@ class TermBuilder {
 
         $terms = collect(preg_split('/[\s,]+/', $search));
 
-        if($wildcards === true){
-            $terms->transform(function($term){
+        if ($wildcards === true) {
+            $terms->transform(function ($term) {
                 return $term. '*';
             });
         }
 
         return $terms;
     }
-
 }

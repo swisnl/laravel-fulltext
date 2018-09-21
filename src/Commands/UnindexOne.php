@@ -1,11 +1,12 @@
 <?php
+
 namespace Swis\LaravelFulltext\Commands;
 
 use Illuminate\Console\Command;
 use Swis\LaravelFulltext\Indexer;
 
-class UnindexOne extends Command {
-
+class UnindexOne extends Command
+{
     protected $signature = 'laravel-fulltext:unindex {model_class} {id}';
 
     /**
@@ -14,7 +15,6 @@ class UnindexOne extends Command {
      * @var string
      */
     protected $description = 'Remove a single record from the searchindex';
-
 
     /**
      * Execute the console command.
