@@ -20,7 +20,7 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist
 
 script:
-  - if [ "$RUN_CS_FIXER" ] ; then vendor/bin/phpcs --standard=psr2 src/ tests/ ; fi
+  - if [ "$RUN_CS_FIXER" ] ; then vendor/bin/phpcs --standard=psr2 src/ ; fi
   - vendor/bin/phpunit --coverage-text
 
 branches:
