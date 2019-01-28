@@ -4,6 +4,12 @@ All notable changes to `laravel-fulltext` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [0.15.0] - 2019-01-28
+
+### Fixed
+
+* Fixed rogue terms when parsing fulltext queries with leading operator (thanks @JaZo)
+
 ## [0.14.0] - 2018-09-21
 
 ### Changed
