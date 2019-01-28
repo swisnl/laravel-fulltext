@@ -10,7 +10,7 @@ class TermBuilder
 
         // Remove every boolean operator (+, -, > <, ( ), ~, *, ", @distance) from the search query
         // else we will break the MySQL query.
-        $search = rtrim(preg_replace('/[+\-><\(\)~*\"@]+/', ' ', $search));
+        $search = trim(preg_replace('/[+\-><\(\)~*\"@]+/', ' ', $search));
 
         $terms = collect(preg_split('/[\s,]+/', $search));
 
