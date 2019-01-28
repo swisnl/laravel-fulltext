@@ -8,8 +8,8 @@ class TermBuilderTest extends AbstractTestCase
 {
     public function test_termbuilder_builds_terms_array()
     {
-        $configReturn= false;
         global $configReturn;
+        $configReturn= false;
 
         $termsResult = ['hi', 'im', 'a', 'few', 'terms'];
         $terms = TermBuilder::terms(implode(' ', $termsResult));
@@ -19,13 +19,13 @@ class TermBuilderTest extends AbstractTestCase
 
     public function test_termbuilder_builds_terms_array_with_wildcard()
     {
-        $configReturn = true;
         global $configReturn;
+        $configReturn = true;
 
         $termsResult = ['hi', 'im', 'a', 'few', 'terms'];
         $terms = TermBuilder::terms(implode(' ', $termsResult));
-        $termsResultWithWilcard = ['hi*', 'im*', 'a*', 'few*', 'terms*'];
-        $diff = $terms->diff($termsResult);
+        $termsResultWithWildcard = ['hi*', 'im*', 'a*', 'few*', 'terms*'];
+        $diff = $terms->diff($termsResultWithWildcard);
         $this->assertCount(0, $diff);
     }
 }
