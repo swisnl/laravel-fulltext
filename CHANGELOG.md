@@ -4,6 +4,15 @@ All notable changes to `laravel-fulltext` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## Unreleased
+
+### Added
+* Added support for Laravel 5.8.
+
+### Changed
+* Dropped Laravel <5.5 support.
+* Dropped PHP <7.1 support.
+
 ## [0.15.0] - 2019-01-28
 
 ### Fixed
