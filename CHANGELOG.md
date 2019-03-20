@@ -6,10 +6,16 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+* Nothing
+
+## [0.16.0] - 2019-03-20
+
 ### Added
+
 * Added support for Laravel 5.8.
 
 ### Changed
+
 * Dropped Laravel <5.5 support.
 * Dropped PHP <7.1 support.
 
