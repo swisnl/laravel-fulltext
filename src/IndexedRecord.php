@@ -7,6 +7,12 @@ class IndexedRecord extends Model
 {
     protected $table = 'laravel_fulltext';
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->connection = config('laravel-fulltext.db_connection');
+    }
+
     public function indexable()
     {
         return $this->morphTo();
