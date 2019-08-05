@@ -104,6 +104,9 @@ Results on ``title`` or ``content`` are weighted in the results. Search result s
 
 Enable wildcard after words. So when searching for for example  ``car`` it will also match ``carbon``. 
 
+### db_connection
+Choose the database connection to use. This MUST be set before running the migration to work correct ;)
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
