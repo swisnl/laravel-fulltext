@@ -6,7 +6,7 @@ return [
      * The database connection to be used
      * This will use the db connection from config/database.php
      */
-    'db_connection' => 'mysql',
+    'db_connection' => env('DB_CONNECTION'),
 
     'weight' => [
         'title' => 1.5,

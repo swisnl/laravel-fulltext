@@ -11,7 +11,7 @@ class IndexedRecord extends Model
     public function __construct()
     {
         parent::__construct();
-        $this->connection = Config::get('laravel-fulltext.db_connection', 'mysql');
+        $this->connection = Config::get('laravel-fulltext.db_connection', config('database.default'));
     }
 
     public function indexable()
