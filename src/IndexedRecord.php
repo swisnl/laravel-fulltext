@@ -2,6 +2,7 @@
 namespace Swis\LaravelFulltext;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 
 class IndexedRecord extends Model
 {
@@ -10,7 +11,7 @@ class IndexedRecord extends Model
     public function __construct()
     {
         parent::__construct();
-        $this->connection = config('laravel-fulltext.db_connection');
+        $this->connection = Config::get('laravel-fulltext.db_connection', 'mysql');
     }
 
     public function indexable()
