@@ -14,8 +14,6 @@ This package creates a MySQL fulltext index for models and enables you to search
 2. Publish migrations and config ``php artisan vendor:publish --tag=laravel-fulltext``
 3. Migrate the database ``php artisan migrate``
 
-> Only if you are on Laravel 5.4 or lower will you need to install the service provider ``Swis\LaravelFulltext\FulltextServiceProvider::class,`` in ``config/app.php``
-
 
 ## Usage
 
