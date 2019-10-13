@@ -5,6 +5,9 @@ namespace Swis\Laravel\Fulltext;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * @property \Swis\Laravel\Fulltext\IndexedRecord|null $indexedRecord
+ */
 trait Indexable
 {
     /**
