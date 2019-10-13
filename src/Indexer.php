@@ -24,7 +24,7 @@ class Indexer
 
     public function indexOneByClass($class, $id)
     {
-        $model = call_user_func(array($class, 'find'), $id);
+        $model = call_user_func([$class, 'find'], $id);
         if (in_array(Indexable::class, class_uses($model), true)) {
             $this->indexModel($model);
         }
@@ -32,7 +32,7 @@ class Indexer
 
     public function indexAllByClass($class)
     {
-        $model = new $class;
+        $model = new $class();
         $self = $this;
         if (in_array(Indexable::class, class_uses($model), true)) {
             $model->chunk(100, function ($chunk) use ($self) {

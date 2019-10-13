@@ -9,12 +9,10 @@ trait Indexable
 {
     /**
      * Boot the trait.
-     *
-     * @return void
      */
     public static function bootIndexable()
     {
-        static::observe(new ModelObserver);
+        static::observe(new ModelObserver());
     }
 
     public function getIndexContent()
@@ -58,20 +56,23 @@ trait Indexable
                 $indexData[] = trim($this->{$column});
             }
         }
+
         return implode(' ', array_filter($indexData));
     }
 
     /**
      * @param $column
+     *
      * @return bool
      */
     protected function indexDataIsRelation($column)
     {
-        return (int)strpos($column, '.') > 0;
+        return (int) strpos($column, '.') > 0;
     }
 
     /**
      * @param $column
+     *
      * @return string
      */
     protected function getIndexValueFromRelation($column)

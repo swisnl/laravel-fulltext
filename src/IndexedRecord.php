@@ -1,4 +1,5 @@
 <?php
+
 namespace Swis\LaravelFulltext;
 
 use Illuminate\Database\Eloquent\Model;

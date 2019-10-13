@@ -16,7 +16,7 @@ class TermBuilder
 
         if ($wildcards === true) {
             $terms->transform(function ($term) {
-                return $term. '*';
+                return $term.'*';
             });
         }
 

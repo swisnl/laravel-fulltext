@@ -9,7 +9,7 @@ class TermBuilderTest extends AbstractTestCase
     public function test_termbuilder_builds_terms_array()
     {
         global $configReturn;
-        $configReturn= false;
+        $configReturn = false;
 
         $termsResult = ['hi', 'im', 'a', 'few', 'terms'];
         $terms = TermBuilder::terms(implode(' ', $termsResult));
@@ -47,5 +47,6 @@ namespace Swis\LaravelFulltext;
 function config($arg)
 {
     global $configReturn;
+
     return $configReturn;
 }

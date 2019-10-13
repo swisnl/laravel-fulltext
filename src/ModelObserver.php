@@ -14,8 +14,7 @@ class ModelObserver
     /**
      * Enable syncing for the given class.
      *
-     * @param  string  $class
-     * @return void
+     * @param string $class
      */
     public static function enableSyncingFor($class)
     {
@@ -25,8 +24,7 @@ class ModelObserver
     /**
      * Disable syncing for the given class.
      *
-     * @param  string  $class
-     * @return void
+     * @param string $class
      */
     public static function disableSyncingFor($class)
     {
@@ -36,7 +34,8 @@ class ModelObserver
     /**
      * Determine if syncing is disabled for the given class or model.
      *
-     * @param  object|string  $class
+     * @param object|string $class
+     *
      * @return bool
      */
     public static function syncingDisabledFor($class)
@@ -49,8 +48,7 @@ class ModelObserver
     /**
      * Handle the created event for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
+     * @param \Illuminate\Database\Eloquent\Model $model
      */
     public function created($model)
     {
@@ -64,8 +62,7 @@ class ModelObserver
     /**
      * Handle the updated event for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
+     * @param \Illuminate\Database\Eloquent\Model $model
      */
     public function updated($model)
     {
@@ -75,8 +72,7 @@ class ModelObserver
     /**
      * Handle the deleted event for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
+     * @param \Illuminate\Database\Eloquent\Model $model
      */
     public function deleted($model)
     {
@@ -90,8 +86,7 @@ class ModelObserver
     /**
      * Handle the restored event for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @return void
+     * @param \Illuminate\Database\Eloquent\Model $model
      */
     public function restored($model)
     {
