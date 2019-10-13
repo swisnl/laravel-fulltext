@@ -94,6 +94,10 @@ Arguments:
 
 ## Options
 
+### db_connection
+
+Choose the database connection to use, defaults to the default database connection. When you are NOT using the default database connection, this MUST be set before running the migration to work correctly.
+
 ### weight.title weight.content
 
 Results on ``title`` or ``content`` are weighted in the results. Search result score is multiplied by the weight in this config 
