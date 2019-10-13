@@ -12,7 +12,7 @@ class CreateLaravelFulltextTable extends Migration
      */
     public function up()
     {
-        Schema::create('laravel_fulltext', function (Blueprint $table) {
+        Schema::connection(config('laravel-fulltext.db_connection'))->create('laravel_fulltext', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('indexable_id');
             $table->string('indexable_type');
@@ -24,8 +24,8 @@ class CreateLaravelFulltextTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE laravel_fulltext ADD FULLTEXT fulltext_title(indexed_title)');
-        DB::statement('ALTER TABLE laravel_fulltext ADD FULLTEXT fulltext_title_content(indexed_title, indexed_content)');
+        DB::connection(config('laravel-fulltext.db_connection'))->statement('ALTER TABLE laravel_fulltext ADD FULLTEXT fulltext_title(indexed_title)');
+        DB::connection(config('laravel-fulltext.db_connection'))->statement('ALTER TABLE laravel_fulltext ADD FULLTEXT fulltext_title_content(indexed_title, indexed_content)');
     }
 
     /**
@@ -35,6 +35,6 @@ class CreateLaravelFulltextTable extends Migration
      */
     public function down()
     {
-        Schema::drop('laravel_fulltext');
+        Schema::connection(config('laravel-fulltext.db_connection'))->drop('laravel_fulltext');
     }
 }
