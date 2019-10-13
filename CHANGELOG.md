@@ -7,8 +7,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## Unreleased
 
 ### Added
+
 * Added support for Laravel 6.
 * Database connection can now be set in the configuration (db_connection).
+
+### Changed
+
+* Changed namespace from `Swis\LaravelFulltext` to `Swis\Laravel\Fulltext`.
 
 ## [0.16.0] - 2019-03-20
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Swis\LaravelFulltext\Tests\Fixtures;
+namespace Swis\Laravel\Fulltext\Tests\Fixtures;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Swis\LaravelFulltext\Tests;
+namespace Swis\Laravel\Fulltext\Tests;
 
-use Swis\LaravelFulltext\TermBuilder;
+use Swis\Laravel\Fulltext\TermBuilder;
 
 class TermBuilderTest extends AbstractTestCase
 {
@@ -42,7 +42,7 @@ class TermBuilderTest extends AbstractTestCase
     }
 }
 
-namespace Swis\LaravelFulltext;
+namespace Swis\Laravel\Fulltext;
 
 function config($arg)
 {

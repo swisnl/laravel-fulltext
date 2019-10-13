@@ -1,9 +1,9 @@
 <?php
 
-namespace Swis\LaravelFulltext\Tests;
+namespace Swis\Laravel\Fulltext\Tests;
 
 use Mockery;
-use Swis\LaravelFulltext\ModelObserver;
+use Swis\Laravel\Fulltext\ModelObserver;
 
 class ModelObserverTest extends AbstractTestCase
 {

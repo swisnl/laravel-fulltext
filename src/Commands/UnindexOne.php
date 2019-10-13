@@ -1,9 +1,9 @@
 <?php
 
-namespace Swis\LaravelFulltext\Commands;
+namespace Swis\Laravel\Fulltext\Commands;
 
 use Illuminate\Console\Command;
-use Swis\LaravelFulltext\Indexer;
+use Swis\Laravel\Fulltext\Indexer;
 
 class UnindexOne extends Command
 {

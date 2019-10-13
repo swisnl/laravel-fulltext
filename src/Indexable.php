@@ -1,6 +1,6 @@
 <?php
 
-namespace Swis\LaravelFulltext;
+namespace Swis\Laravel\Fulltext;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -27,7 +27,7 @@ trait Indexable
 
     public function indexedRecord()
     {
-        return $this->morphOne('Swis\LaravelFulltext\IndexedRecord', 'indexable');
+        return $this->morphOne(IndexedRecord::class, 'indexable');
     }
 
     public function indexRecord()

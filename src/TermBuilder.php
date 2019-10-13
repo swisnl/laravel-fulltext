@@ -1,6 +1,6 @@
 <?php
 
-namespace Swis\LaravelFulltext;
+namespace Swis\Laravel\Fulltext;
 
 class TermBuilder
 {

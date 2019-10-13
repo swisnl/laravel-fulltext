@@ -1,8 +1,8 @@
 <?php
 
-namespace Swis\LaravelFulltext\Tests\Fixtures;
+namespace Swis\Laravel\Fulltext\Tests\Fixtures;
 
-use Swis\LaravelFulltext\Indexable;
+use Swis\Laravel\Fulltext\Indexable;
 
 class IndexableTestModel extends TestModel
 {

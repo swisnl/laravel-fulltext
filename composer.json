@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Swis\\LaravelFulltext\\": "src/"
+            "Swis\\Laravel\\Fulltext\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Swis\\LaravelFulltext\\Tests\\": "tests/"
+            "Swis\\Laravel\\Fulltext\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -49,7 +49,7 @@
         },
         "laravel": {
             "providers": [
-                "Swis\\LaravelFulltext\\FulltextServiceProvider"
+                "Swis\\Laravel\\Fulltext\\FulltextServiceProvider"
             ]
         }
     },

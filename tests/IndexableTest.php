@@ -1,10 +1,10 @@
 <?php
 
-namespace Swis\LaravelFulltext\Tests;
+namespace Swis\Laravel\Fulltext\Tests;
 
 use Mockery;
-use Swis\LaravelFulltext\IndexedRecord;
-use Swis\LaravelFulltext\Tests\Fixtures\IndexableTestModel;
+use Swis\Laravel\Fulltext\IndexedRecord;
+use Swis\Laravel\Fulltext\Tests\Fixtures\IndexableTestModel;
 
 class IndexableTest extends AbstractTestCase
 {

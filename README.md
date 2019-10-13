@@ -28,7 +28,7 @@ Add the ``Indexable`` trait to the model you want to have indexed and define the
 class Country extends Model
 {
 
-    use \Swis\LaravelFulltext\Indexable;
+    use \Swis\Laravel\Fulltext\Indexable;
 
     protected $indexContentColumns = ['biographies.name', 'political_situation', 'elections'];
     protected $indexTitleColumns = ['name', 'governmental_type'];
@@ -44,11 +44,11 @@ You can use a dot notitation to query relationships for the model, like ``biogra
 You can search using the Search class.
 
 ```
-$search = new \Swis\LaravelFulltext\Search();
+$search = new \Swis\Laravel\Fulltext\Search();
 $search->run('europe');
 ```
 
-This will return a Collection of ``\Swis\LaravelFulltext\IndexedRecord`` which contain the models in the Polymorphic relation ``indexable``.
+This will return a Collection of ``\Swis\Laravel\Fulltext\IndexedRecord`` which contain the models in the Polymorphic relation ``indexable``.
 
 If you only want to search a certain model you can use ``$search->runForClass('europe', Country::class);``. This will only return results from that model.
 

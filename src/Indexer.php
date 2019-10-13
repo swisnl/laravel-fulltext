@@ -1,6 +1,6 @@
 <?php
 
-namespace Swis\LaravelFulltext;
+namespace Swis\Laravel\Fulltext;
 
 use Illuminate\Database\Eloquent\Model;
 
