@@ -8,6 +8,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Added
 * Added support for Laravel 6.
+* Database connection can now be set in the configuration (db_connection).
 
 ## [0.16.0] - 2019-03-20
 
