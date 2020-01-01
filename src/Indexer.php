@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Indexer
 {
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $model
-     */
     public function indexModel(Model $model)
     {
         $model->indexRecord();
