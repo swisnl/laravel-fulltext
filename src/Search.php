@@ -59,11 +59,11 @@ class Search implements SearchInterface
                 [$termsMatch, $termsMatch])
             ->limit(config('laravel-fulltext.limit-results'));
 
-        if (config('laravel-fulltext.exclude_feature_enabled')){
-            $query->with(array('indexable' => function($query){
+        if (config('laravel-fulltext.exclude_feature_enabled')) {
+            $query->with(['indexable' => function ($query) {
                 $query->where(config('laravel-fulltext.exclude_records_column_name'), '=', true);
-            }));
-        }else{
+            }]);
+        } else {
             $query->with('indexable');
         }
 

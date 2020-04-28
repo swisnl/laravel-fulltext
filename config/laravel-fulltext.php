@@ -23,5 +23,5 @@ return [
      * Exclude some rows
      */
     'exclude_feature_enabled' => false,
-    'exclude_records_column_name' => 'default_column'
+    'exclude_records_column_name' => 'default_column',
 ];
