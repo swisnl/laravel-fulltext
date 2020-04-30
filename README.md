@@ -106,6 +106,18 @@ Results on ``title`` or ``content`` are weighted in the results. Search result s
 
 Enable wildcard after words. So when searching for for example  ``car`` it will also match ``carbon``. 
 
+### exclude_feature_enabled
+
+This feature excludes some rows from being returned. Enable this when you have a flag in your model which determines whether this record must be returned in search queries or not. By default this feature is disabled.
+
+### exclude_records_column_name
+
+The column name for that property (which acts as a flag). This must match the exact column name at the table.
+
+#### An example of using this feature
+
+Think about when you have a blog and then you add this search functionality to your blogging system to search through your blog posts. Sometimes you do not want some posts to be appeared in search result, for example when a post is not published yet. This feature helps you to do it.
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

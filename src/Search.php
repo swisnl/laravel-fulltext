@@ -56,10 +56,16 @@ class Search implements SearchInterface
               '('.$titleWeight.' * (MATCH (indexed_title) AGAINST (?)) +
               '.$contentWeight.' * (MATCH (indexed_title, indexed_content) AGAINST (?))
              ) DESC',
-              [$termsMatch, $termsMatch]
-          )
-          ->limit(config('laravel-fulltext.limit-results'))
-          ->with('indexable');
+                [$termsMatch, $termsMatch])
+            ->limit(config('laravel-fulltext.limit-results'));
+
+        if (config('laravel-fulltext.exclude_feature_enabled')) {
+            $query->with(['indexable' => function ($query) {
+                $query->where(config('laravel-fulltext.exclude_records_column_name'), '=', true);
+            }]);
+        } else {
+            $query->with('indexable');
+        }
 
         return $query;
     }
