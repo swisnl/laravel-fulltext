@@ -8,6 +8,18 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 * Nothing
 
+## [0.19.0] - 2020-04-30
+
+### Added
+
+New feature which you can enable in the config:
+
+* exclude_feature_enabled
+This feature excludes some rows from being returned. Enable this when you have a flag in your model which determines whether this record must be returned in search queries or not. By default this feature is disabled.
+
+* exclude_records_column_name
+The column name for that property (which acts as a flag). This must match the exact column name at the table.
+
 ## [0.18.0] - 2020-03-06
 
 ### Added
