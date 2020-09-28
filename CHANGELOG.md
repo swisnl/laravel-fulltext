@@ -8,6 +8,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 * Nothing
 
+## [0.20.0] - 2020-09-28
+
+### Added
+
+* Added support for Laravel 8.
+
 ## [0.19.0] - 2020-04-30
 
 ### Added
