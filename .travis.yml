@@ -2,26 +2,14 @@ language: php
 
 matrix:
   include:
-    - php: "7.1"
-      env: LARAVEL_VERSION="5.5.*"
     - php: "7.2"
-      env: LARAVEL_VERSION="5.5.*"
-    - php: "7.2"
-      env: LARAVEL_VERSION="5.6.*"
-    - php: "7.2"
-      env: LARAVEL_VERSION="5.7.*"
-    - php: "7.2"
-      env: LARAVEL_VERSION="5.8.*"
-    - php: "7.2"
-      env: LARAVEL_VERSION="^6.0" RUN_CS_FIXER=1
+      env: LARAVEL_VERSION="^6.0"
     - php: "7.3"
       env: LARAVEL_VERSION="^7.0"
     - php: "7.3"
       env: LARAVEL_VERSION="^8.0"
     - php: "7.4"
-      env: LARAVEL_VERSION="^8.0"
-
-sudo: false
+      env: LARAVEL_VERSION="^8.0" RUN_CS_FIXER=1
 
 install:
   - composer require "illuminate/console:${LARAVEL_VERSION}" "illuminate/contracts:${LARAVEL_VERSION}" "illuminate/database:${LARAVEL_VERSION}" "illuminate/support:${LARAVEL_VERSION}" --no-update --no-interaction

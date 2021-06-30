@@ -6,7 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
-* Nothing
+### Removed
+
+* PHP <7.2 support
+* Laravel <6 support
 
 ## [0.20.0] - 2020-09-28
 
