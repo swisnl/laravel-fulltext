@@ -6,10 +6,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
-### Removed
+### Changed
 
-* PHP <7.2 support
-* Laravel <6 support
+* Added support for more deeply nested values [#30](https://github.com/swisnl/laravel-fulltext/pull/30).
+* Dropped PHP <7.2 support.
+* Dropped Laravel <6 support.
 
 ## [0.20.0] - 2020-09-28
 
