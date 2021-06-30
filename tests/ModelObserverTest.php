@@ -7,7 +7,7 @@ use Swis\Laravel\Fulltext\ModelObserver;
 
 class ModelObserverTest extends AbstractTestCase
 {
-    public function test_created_handler_indexes_model()
+    public function testCreatedHandlerIndexesModel()
     {
         $observer = new ModelObserver();
         $model = Mockery::mock();
@@ -15,7 +15,7 @@ class ModelObserverTest extends AbstractTestCase
         $observer->created($model);
     }
 
-    public function test_created_handler_doesnt_index_model_when_disabled()
+    public function testCreatedHandlerDoesntIndexModelWhenDisabled()
     {
         $observer = new ModelObserver();
         $model = Mockery::mock();
@@ -24,7 +24,7 @@ class ModelObserverTest extends AbstractTestCase
         $observer->created($model);
     }
 
-    public function test_updated_handler_indexes_model()
+    public function testUpdatedHandlerIndexesModel()
     {
         $observer = new ModelObserver();
         $model = Mockery::mock();
@@ -32,7 +32,7 @@ class ModelObserverTest extends AbstractTestCase
         $observer->updated($model);
     }
 
-    public function test_deleted_handler_makes_unindexes_model()
+    public function testDeletedHandlerMakesUnindexesModel()
     {
         $observer = new ModelObserver();
         $model = Mockery::mock();
@@ -40,7 +40,7 @@ class ModelObserverTest extends AbstractTestCase
         $observer->deleted($model);
     }
 
-    public function test_restored_handler_indexes_model()
+    public function testRestoredHandlerIndexesModel()
     {
         $observer = new ModelObserver();
         $model = Mockery::mock();

@@ -8,7 +8,7 @@ use Swis\Laravel\Fulltext\Tests\Fixtures\IndexableTestModel;
 
 class IndexableTest extends AbstractTestCase
 {
-    public function test_indexed_record_receives_update_index()
+    public function testIndexedRecordReceivesUpdateIndex()
     {
         $indexedRecord = Mockery::mock(IndexedRecord::class);
         $indexedRecord->shouldReceive('updateIndex');
@@ -18,7 +18,7 @@ class IndexableTest extends AbstractTestCase
         $model->indexRecord();
     }
 
-    public function test_indexed_record_receives_delete()
+    public function testIndexedRecordReceivesDelete()
     {
         $indexedRecord = Mockery::mock(IndexedRecord::class);
         $indexedRecord->shouldReceive('delete');

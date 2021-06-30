@@ -8,7 +8,7 @@ use Swis\Laravel\Fulltext\Tests\Fixtures\TestModel;
 
 class IndexerTest extends AbstractTestCase
 {
-    public function test_index_model()
+    public function testIndexModel()
     {
         $indexer = new Indexer();
         $model = Mockery::mock(TestModel::class);

@@ -8,7 +8,7 @@ $finder = PhpCsFixer\Finder::create()
     ])
 ;
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setFinder($finder)
     ->setRules([
         '@Symfony' => true,
@@ -17,6 +17,6 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => true,
         'phpdoc_add_missing_param_annotation' => true,
         'phpdoc_order' => true,
-        'yoda_style' => null,
+        'yoda_style' => false,
     ])
 ;
