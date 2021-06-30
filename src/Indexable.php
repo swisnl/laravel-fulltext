@@ -2,9 +2,6 @@
 
 namespace Swis\Laravel\Fulltext;
 
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-
 /**
  * @property \Swis\Laravel\Fulltext\IndexedRecord|null $indexedRecord
  */
@@ -53,43 +50,15 @@ trait Indexable
     {
         $indexData = [];
         foreach ($columns as $column) {
-            if ($this->indexDataIsRelation($column)) {
-                $indexData[] = $this->getIndexValueFromRelation($column);
-            } else {
-                $indexData[] = trim($this->{$column});
+            $indexValue = data_get($this, $column);
+
+            if (is_array($indexValue)) {
+                $indexValue = implode(' ', array_filter($indexValue));
             }
+
+            $indexData[] = $indexValue;
         }
 
         return implode(' ', array_filter($indexData));
-    }
-
-    /**
-     * @param $column
-     *
-     * @return bool
-     */
-    protected function indexDataIsRelation($column)
-    {
-        return (int) strpos($column, '.') > 0;
-    }
-
-    /**
-     * @param $column
-     *
-     * @return string
-     */
-    protected function getIndexValueFromRelation($column)
-    {
-        list($relation, $column) = explode('.', $column);
-        if (is_null($this->{$relation})) {
-            return '';
-        }
-
-        $relationship = $this->{$relation}();
-        if ($relationship instanceof BelongsTo || $relationship instanceof HasOne) {
-            return $this->{$relation}->{$column};
-        }
-
-        return $this->{$relation}->pluck($column)->implode(', ');
     }
 }
