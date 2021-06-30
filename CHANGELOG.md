@@ -10,9 +10,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [0.21.0] - 2021-06-30
 
+### Added 
+
+* Added support for using fot notation to read nested values for index values, see [#30](https://github.com/swisnl/laravel-fulltext/pull/30).
+
 ### Changed
 
-* Added support for more deeply nested values [#30](https://github.com/swisnl/laravel-fulltext/pull/30).
 * Dropped PHP <7.2 support.
 * Dropped Laravel <6 support.
 
