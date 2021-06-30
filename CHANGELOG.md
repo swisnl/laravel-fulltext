@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+* Nothing.
+
+## [0.21.0] - 2021-06-30
+
 ### Changed
 
 * Added support for more deeply nested values [#30](https://github.com/swisnl/laravel-fulltext/pull/30).
