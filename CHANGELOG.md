@@ -12,7 +12,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Added 
 
-* Added support for using fot notation to read nested values for index values, see [#30](https://github.com/swisnl/laravel-fulltext/pull/30).
+* Added support for using dot notation to read nested values for index values, see [#30](https://github.com/swisnl/laravel-fulltext/pull/30).
 
 ### Changed
 
