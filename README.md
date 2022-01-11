@@ -157,7 +157,7 @@ This package is [Treeware](https://treeware.earth). If you use it in production,
 [ico-treeware]: https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/swisnl/laravel-fulltext/master.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/swisnl/laravel-fulltext.svg?style=flat-square
-[ico-swis]: https://img.shields.io/badge/%F0%9F%9A%80-made%20by%20SWIS-%23D9021B.svg?style=flat-square
+[ico-swis]: https://img.shields.io/badge/%F0%9F%9A%80-made%20by%20SWIS-%230737A9.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/swisnl/laravel-fulltext
 [link-travis]: https://travis-ci.org/swisnl/laravel-fulltext
