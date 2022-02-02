@@ -4,9 +4,11 @@ All notable changes to `laravel-fulltext` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## Unreleased
+## [Unreleased]
 
-* Nothing.
+### Added
+
+* Added support for Laravel 9.
 
 ## [0.21.0] - 2021-06-30
 
