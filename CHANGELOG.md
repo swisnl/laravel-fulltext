@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [Unreleased]
 
+* Nothing
+
+## [0.21.1] - 2022-02-08
+
 ### Added
 
 * Added support for Laravel 9.
