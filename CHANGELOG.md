@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [Unreleased]
 
+### Added
+
+* Added support for morph maps.
+
 ### Changed
 
 * Dropped PHP <7.4 support.
