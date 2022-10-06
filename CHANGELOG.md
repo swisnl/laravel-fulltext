@@ -9,6 +9,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed
 
 * Dropped PHP <7.4 support.
+* Moved tests to GitHub Actions.
 
 ## [0.21.1] - 2022-02-08
 

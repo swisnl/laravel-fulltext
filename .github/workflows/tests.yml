@@ -1,0 +1,49 @@
+name: Run tests
+
+on: [ push, pull_request ]
+
+jobs:
+  php-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [ '7.4', '8.0' ]
+        laravel: [ '6.*', '7.*', '8.*', '9.*' ]
+        stability: [ prefer-lowest, prefer-stable ]
+        exclude:
+          - laravel: '9.*'
+            php: '7.4'
+
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
+          tools: composer:v2
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-composer-${{ matrix.stability }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: php-${{ matrix.php }}-laravel-${{ matrix.laravel }}-composer-${{ matrix.stability }}-
+
+      - name: Install dependencies
+        run: |
+          composer require "illuminate/console:${{ matrix.laravel }}" "illuminate/contracts:${{ matrix.laravel }}" "illuminate/database:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+
+      - name: Execute tests
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text

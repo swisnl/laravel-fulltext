@@ -3,7 +3,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Buy us a tree][ico-treeware]][link-treeware]
-[![Build Status][ico-travis]][link-travis]
+[![Build Status][ico-github-actions]][link-github-actions]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Made by SWIS][ico-swis]][link-swis]
 
@@ -133,12 +133,12 @@ This package is [Treeware](https://treeware.earth). If you use it in production,
 [ico-version]: https://img.shields.io/packagist/v/swisnl/laravel-fulltext.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-treeware]: https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/swisnl/laravel-fulltext/master.svg?style=flat-square
+[ico-github-actions]: https://img.shields.io/github/checks-status/swisnl/laravel-fulltext/master.svg?label=tests&style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/swisnl/laravel-fulltext.svg?style=flat-square
 [ico-swis]: https://img.shields.io/badge/%F0%9F%9A%80-made%20by%20SWIS-%230737A9.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/swisnl/laravel-fulltext
-[link-travis]: https://travis-ci.org/swisnl/laravel-fulltext
+[link-github-actions]: https://github.com/swisnl/laravel-fulltext/actions/workflows/tests.yml
 [link-downloads]: https://packagist.org/packages/swisnl/laravel-fulltext
 [link-treeware]: https://plant.treeware.earth/swisnl/laravel-fulltext
 [link-author]: https://github.com/swisnl
