@@ -56,7 +56,7 @@ class Search implements SearchInterface
               '('.$titleWeight.' * (MATCH (indexed_title) AGAINST (?)) +
               '.$contentWeight.' * (MATCH (indexed_title, indexed_content) AGAINST (?))
              ) DESC',
-                [$termsMatch, $termsMatch])
+              [$termsMatch, $termsMatch])
             ->limit(config('laravel-fulltext.limit-results'));
 
         if (config('laravel-fulltext.exclude_feature_enabled')) {
