@@ -13,7 +13,7 @@ class Indexer
 
     public function unIndexOneByClass($class, $id)
     {
-        $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', $class);
+        $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', (new $class())->getMorphClass());
         if ($record->exists) {
             $record->delete();
         }
