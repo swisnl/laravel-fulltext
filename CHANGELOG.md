@@ -6,7 +6,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [Unreleased]
 
-* Nothing
+### Changed
+
+* Dropped PHP <7.4 support.
 
 ## [0.21.1] - 2022-02-08
 
