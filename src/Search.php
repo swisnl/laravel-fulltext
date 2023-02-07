@@ -17,8 +17,8 @@ class Search implements SearchInterface
     }
 
     /**
-     * @param $search
-     * @param $class
+     * @param string $search
+     * @param string $class
      *
      * @return \Illuminate\Database\Eloquent\Collection|\Swis\Laravel\Fulltext\IndexedRecord[]
      */
