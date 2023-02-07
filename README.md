@@ -133,7 +133,7 @@ This package is [Treeware](https://treeware.earth). If you use it in production,
 [ico-version]: https://img.shields.io/packagist/v/swisnl/laravel-fulltext.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-treeware]: https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen.svg?style=flat-square
-[ico-github-actions]: https://img.shields.io/github/checks-status/swisnl/laravel-fulltext/master.svg?label=tests&style=flat-square
+[ico-github-actions]: https://img.shields.io/github/actions/workflow/status/swisnl/laravel-fulltext/tests.yml?label=tests&branch=master&style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/swisnl/laravel-fulltext.svg?style=flat-square
 [ico-swis]: https://img.shields.io/badge/%F0%9F%9A%80-made%20by%20SWIS-%230737A9.svg?style=flat-square
 
