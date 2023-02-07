@@ -9,6 +9,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added
 
 * Added support for morph maps.
+* Added support for Laravel 10.
 
 ### Changed
 
