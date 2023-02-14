@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## [Unreleased]
 
+* Nothing.
+
+## [0.22.0] - 2023-02-14
+
 ### Added
 
 * Added support for morph maps.
