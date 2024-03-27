@@ -10,9 +10,9 @@ use Swis\Laravel\Fulltext\Commands\UnindexOne;
 class FulltextServiceProvider extends ServiceProvider
 {
     protected $commands = [
-      Index::class,
-      IndexOne::class,
-      UnindexOne::class,
+        Index::class,
+        IndexOne::class,
+        UnindexOne::class,
     ];
 
     /**
@@ -28,14 +28,14 @@ class FulltextServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
-                __DIR__.'/../config/laravel-fulltext.php' => config_path('laravel-fulltext.php'),
+                    __DIR__.'/../config/laravel-fulltext.php' => config_path('laravel-fulltext.php'),
                 ],
                 'laravel-fulltext'
             );
 
             $this->publishes(
                 [
-                __DIR__.'/../database/migrations' => database_path('migrations'),
+                    __DIR__.'/../database/migrations' => database_path('migrations'),
                 ],
                 'laravel-fulltext'
             );

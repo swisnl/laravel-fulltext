@@ -3,7 +3,7 @@
 namespace Swis\Laravel\Fulltext;
 
 /**
- * @property \Swis\Laravel\Fulltext\IndexedRecord|null $indexedRecord
+ * @property IndexedRecord|null $indexedRecord
  */
 trait Indexable
 {
