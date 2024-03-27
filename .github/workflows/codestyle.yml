@@ -1,6 +1,10 @@
 name: Check code style
 
-on: [ push, pull_request ]
+on:
+  pull_request:
+  push:
+    paths:
+      - '**.php'
 
 jobs:
   php-style:
@@ -11,6 +15,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check style
-        uses: docker://oskarstark/php-cs-fixer-ga
+        uses: aglipanci/laravel-pint-action@v2
         with:
-          args: -v --dry-run --using-cache=no
+          testMode: true
