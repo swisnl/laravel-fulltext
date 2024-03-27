@@ -32,7 +32,7 @@ trait Indexable
 
     public function indexRecord()
     {
-        if (null === $this->indexedRecord) {
+        if ($this->indexedRecord === null) {
             $this->indexedRecord = new IndexedRecord();
             $this->indexedRecord->indexable()->associate($this);
         }
@@ -41,7 +41,7 @@ trait Indexable
 
     public function unIndexRecord()
     {
-        if (null !== $this->indexedRecord) {
+        if ($this->indexedRecord !== null) {
             $this->indexedRecord->delete();
         }
     }

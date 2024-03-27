@@ -5,8 +5,7 @@ namespace Swis\Laravel\Fulltext;
 class Search implements SearchInterface
 {
     /**
-     * @param string $search
-     *
+     * @param  string  $search
      * @return \Illuminate\Database\Eloquent\Collection|\Swis\Laravel\Fulltext\IndexedRecord[]
      */
     public function run($search)
@@ -17,9 +16,8 @@ class Search implements SearchInterface
     }
 
     /**
-     * @param string $search
-     * @param string $class
-     *
+     * @param  string  $search
+     * @param  string  $class
      * @return \Illuminate\Database\Eloquent\Collection|\Swis\Laravel\Fulltext\IndexedRecord[]
      */
     public function runForClass($search, $class)
@@ -31,8 +29,7 @@ class Search implements SearchInterface
     }
 
     /**
-     * @param string $search
-     *
+     * @param  string  $search
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function searchQuery($search)
@@ -51,12 +48,12 @@ class Search implements SearchInterface
         $contentWeight = str_replace(',', '.', (float) config('laravel-fulltext.weight.content', 1.0));
 
         $query = IndexedRecord::query()
-          ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST (? IN BOOLEAN MODE)', [$termsBool])
-          ->orderByRaw(
-              '('.$titleWeight.' * (MATCH (indexed_title) AGAINST (?)) +
+            ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST (? IN BOOLEAN MODE)', [$termsBool])
+            ->orderByRaw(
+                '('.$titleWeight.' * (MATCH (indexed_title) AGAINST (?)) +
               '.$contentWeight.' * (MATCH (indexed_title, indexed_content) AGAINST (?))
              ) DESC',
-              [$termsMatch, $termsMatch])
+                [$termsMatch, $termsMatch])
             ->limit(config('laravel-fulltext.limit-results'));
 
         if (config('laravel-fulltext.exclude_feature_enabled')) {
