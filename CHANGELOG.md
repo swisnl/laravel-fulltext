@@ -8,6 +8,22 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 * Nothing.
 
+## [0.23.0] - 2024-03-27
+
+### Added
+
+* Added support for Laravel 11.
+
+### Changed
+
+* Dropped PHP <8.1 support.
+* Dropped Laravel <10 support.
+* Moved to Laravel Pint as formatter.
+
+### Fixed
+
+* Added missing imports in migration.
+
 ## [0.22.0] - 2023-02-14
 
 ### Added
