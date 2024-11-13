@@ -2,14 +2,14 @@
 
 namespace Swis\Laravel\Fulltext\Tests;
 
+use Illuminate\Support\Facades\Config;
 use Swis\Laravel\Fulltext\TermBuilder;
 
 class TermBuilderTest extends AbstractTestCase
 {
     public function testTermbuilderBuildsTermsArray()
     {
-        global $configReturn;
-        $configReturn = false;
+        Config::set('laravel-fulltext.enable_wildcards', false);
 
         $termsResult = ['hi', 'im', 'a', 'few', 'terms'];
         $terms = TermBuilder::terms(implode(' ', $termsResult));
@@ -19,8 +19,7 @@ class TermBuilderTest extends AbstractTestCase
 
     public function testTermbuilderDoesNotBuildEmptyTerms()
     {
-        global $configReturn;
-        $configReturn = false;
+        Config::set('laravel-fulltext.enable_wildcards', false);
 
         $termsResult = ['<hi', 'im', 'a', 'few', 'terms>'];
         $terms = TermBuilder::terms(implode(' ', $termsResult));
@@ -31,8 +30,7 @@ class TermBuilderTest extends AbstractTestCase
 
     public function testTermbuilderBuildsTermsArrayWithWildcard()
     {
-        global $configReturn;
-        $configReturn = true;
+        Config::set('laravel-fulltext.enable_wildcards', true);
 
         $termsResult = ['hi', 'im', 'a', 'few', 'terms'];
         $terms = TermBuilder::terms(implode(' ', $termsResult));
@@ -40,13 +38,4 @@ class TermBuilderTest extends AbstractTestCase
         $diff = $terms->diff($termsResultWithWildcard);
         $this->assertCount(0, $diff);
     }
-}
-
-namespace Swis\Laravel\Fulltext;
-
-function config($arg)
-{
-    global $configReturn;
-
-    return $configReturn;
 }
