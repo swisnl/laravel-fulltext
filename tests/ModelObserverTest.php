@@ -8,7 +8,7 @@ class ModelObserverTest extends AbstractTestCase
 {
     public function testCreatedHandlerIndexesModel()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('indexRecord');
         $observer->created($model);
@@ -16,7 +16,7 @@ class ModelObserverTest extends AbstractTestCase
 
     public function testCreatedHandlerDoesntIndexModelWhenDisabled()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $observer->disableSyncingFor(get_class($model));
         $model->shouldReceive('indexRecord')->never();
@@ -25,7 +25,7 @@ class ModelObserverTest extends AbstractTestCase
 
     public function testUpdatedHandlerIndexesModel()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('indexRecord');
         $observer->updated($model);
@@ -33,7 +33,7 @@ class ModelObserverTest extends AbstractTestCase
 
     public function testDeletedHandlerMakesUnindexesModel()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('unIndexRecord');
         $observer->deleted($model);
@@ -41,7 +41,7 @@ class ModelObserverTest extends AbstractTestCase
 
     public function testRestoredHandlerIndexesModel()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('indexRecord');
         $observer->restored($model);

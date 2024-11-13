@@ -21,7 +21,7 @@ class Index extends Command
      */
     public function handle()
     {
-        $indexer = new Indexer();
+        $indexer = new Indexer;
         $indexer->indexAllByClass($this->argument('model_class'));
     }
 }

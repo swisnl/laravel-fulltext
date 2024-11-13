@@ -29,7 +29,7 @@ class Indexer
 
     public function indexAllByClass($class)
     {
-        $model = new $class();
+        $model = new $class;
         $self = $this;
         if (in_array(Indexable::class, class_uses($model), true)) {
             $model->chunk(100, function ($chunk) use ($self) {

@@ -21,7 +21,7 @@ class IndexOne extends Command
      */
     public function handle()
     {
-        $indexer = new Indexer();
+        $indexer = new Indexer;
         $indexer->indexOneByClass($this->argument('model_class'), $this->argument('id'));
     }
 }

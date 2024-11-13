@@ -12,7 +12,7 @@ class IndexableTest extends AbstractTestCase
         $indexedRecord = \Mockery::mock(IndexedRecord::class);
         $indexedRecord->shouldReceive('updateIndex');
 
-        $model = new IndexableTestModel();
+        $model = new IndexableTestModel;
         $model->indexedRecord = $indexedRecord;
         $model->indexRecord();
     }
@@ -22,7 +22,7 @@ class IndexableTest extends AbstractTestCase
         $indexedRecord = \Mockery::mock(IndexedRecord::class);
         $indexedRecord->shouldReceive('delete');
 
-        $model = new IndexableTestModel();
+        $model = new IndexableTestModel;
         $model->indexedRecord = $indexedRecord;
         $model->unIndexRecord();
     }
