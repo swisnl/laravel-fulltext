@@ -5,9 +5,10 @@ namespace Swis\Laravel\Fulltext;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Facades\Config;
+use Swis\Laravel\Fulltext\Contracts\Indexable;
 
 /**
- * @property Model $indexable
+ * @property Indexable $indexable
  */
 class IndexedRecord extends Model
 {

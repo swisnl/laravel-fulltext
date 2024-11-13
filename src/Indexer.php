@@ -2,13 +2,13 @@
 
 namespace Swis\Laravel\Fulltext;
 
-use Illuminate\Database\Eloquent\Model;
+use Swis\Laravel\Fulltext\Contracts\Indexable;
 
 class Indexer
 {
-    public function indexModel(Model $model): void
+    public function indexModel(Indexable $indexable): void
     {
-        $model->indexRecord();
+        $indexable->indexRecord();
     }
 
     public function unIndexOneByClass($class, $id)
@@ -16,7 +16,7 @@ class Indexer
         $record = IndexedRecord::query()
             ->where('indexable_id', $id)->where('indexable_type', (new $class)->getMorphClass());
 
-        if ($record->exists) {
+        if ($record->exists()) {
             $record->delete();
         }
     }

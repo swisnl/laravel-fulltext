@@ -2,7 +2,7 @@
 
 namespace Swis\Laravel\Fulltext\Tests\Fixtures;
 
-use Swis\Laravel\Fulltext\Indexable;
+use Swis\Laravel\Fulltext\Concerns\Indexable;
 
 class IndexableTestModel extends TestModel
 {

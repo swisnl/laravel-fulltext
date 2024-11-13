@@ -47,7 +47,7 @@ class ModelObserver
     /**
      * Handle the created event for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  \Swis\Laravel\Fulltext\Contracts\Indexable  $model
      */
     public function created($model)
     {
@@ -71,7 +71,7 @@ class ModelObserver
     /**
      * Handle the deleted event for the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  \Swis\Laravel\Fulltext\Contracts\Indexable  $model
      */
     public function deleted($model)
     {
