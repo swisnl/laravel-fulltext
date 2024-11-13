@@ -2,6 +2,8 @@
 
 namespace Swis\Laravel\Fulltext;
 
+use Illuminate\Support\Facades\Config;
+
 class Search implements SearchInterface
 {
     /**
@@ -44,8 +46,8 @@ class Search implements SearchInterface
             $termsMatch = ''.$terms->implode(' ');
         }
 
-        $titleWeight = str_replace(',', '.', (float) config('laravel-fulltext.weight.title', 1.5));
-        $contentWeight = str_replace(',', '.', (float) config('laravel-fulltext.weight.content', 1.0));
+        $titleWeight = str_replace(',', '.', (float) Config::get('laravel-fulltext.weight.title', 1.5));
+        $contentWeight = str_replace(',', '.', (float) Config::get('laravel-fulltext.weight.content', 1.0));
 
         $query = IndexedRecord::query()
             ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST (? IN BOOLEAN MODE)', [$termsBool])
@@ -54,11 +56,11 @@ class Search implements SearchInterface
               '.$contentWeight.' * (MATCH (indexed_title, indexed_content) AGAINST (?))
              ) DESC',
                 [$termsMatch, $termsMatch])
-            ->limit(config('laravel-fulltext.limit-results'));
+            ->limit(Config::get('laravel-fulltext.limit-results'));
 
-        if (config('laravel-fulltext.exclude_feature_enabled')) {
+        if (Config::get('laravel-fulltext.exclude_feature_enabled')) {
             $query->with(['indexable' => function ($query) {
-                $query->where(config('laravel-fulltext.exclude_records_column_name'), '=', true);
+                $query->where(Config::get('laravel-fulltext.exclude_records_column_name'), '=', true);
             }]);
         } else {
             $query->with('indexable');

@@ -2,11 +2,13 @@
 
 namespace Swis\Laravel\Fulltext;
 
+use Illuminate\Support\Facades\Config;
+
 class TermBuilder
 {
     public static function terms($search)
     {
-        $wildcards = config('laravel-fulltext.enable_wildcards');
+        $wildcards = Config::get('laravel-fulltext.enable_wildcards');
 
         // Remove every boolean operator (+, -, > <, ( ), ~, *, ", @distance) from the search query
         // else we will break the MySQL query.

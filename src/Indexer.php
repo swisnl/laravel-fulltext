@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Indexer
 {
-    public function indexModel(Model $model)
+    public function indexModel(Model $model): void
     {
         $model->indexRecord();
     }
 
     public function unIndexOneByClass($class, $id)
     {
-        $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', (new $class())->getMorphClass());
+        $record = IndexedRecord::query()
+            ->where('indexable_id', $id)->where('indexable_type', (new $class)->getMorphClass());
+
         if ($record->exists) {
             $record->delete();
         }

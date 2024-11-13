@@ -3,24 +3,29 @@
 namespace Swis\Laravel\Fulltext;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Facades\Config;
 
+/**
+ * @property Model $indexable
+ */
 class IndexedRecord extends Model
 {
     protected $table = 'laravel_fulltext';
 
     public function __construct(array $attributes = [])
     {
-        $this->connection = config('laravel-fulltext.db_connection');
+        $this->connection = Config::get('laravel-fulltext.db_connection');
 
         parent::__construct($attributes);
     }
 
-    public function indexable()
+    public function indexable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public function updateIndex()
+    public function updateIndex(): void
     {
         $this->setAttribute('indexed_title', $this->indexable->getIndexTitle());
         $this->setAttribute('indexed_content', $this->indexable->getIndexContent());
