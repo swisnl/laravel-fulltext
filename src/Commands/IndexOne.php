@@ -3,6 +3,7 @@
 namespace Swis\Laravel\Fulltext\Commands;
 
 use Illuminate\Console\Command;
+use InvalidArgumentException;
 use Swis\Laravel\Fulltext\Indexer;
 
 class IndexOne extends Command
@@ -19,9 +20,21 @@ class IndexOne extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
-        $indexer = new Indexer();
-        $indexer->indexOneByClass($this->argument('model_class'), $this->argument('id'));
+        $modelClass = $this->argument('model_class');
+        if (! is_string($modelClass)) {
+            throw new InvalidArgumentException('Model class must be a string');
+        }
+
+        $id = $this->argument('id');
+        if (! is_string($id)) {
+            throw new InvalidArgumentException('ID must be a string or an integer');
+        }
+
+        $indexer = new Indexer;
+        $indexer->indexOneByClass($modelClass, $id);
+
+        return self::SUCCESS;
     }
 }

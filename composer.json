@@ -24,9 +24,15 @@
         "illuminate/support": "^10.0|^11.0"
     },
     "require-dev": {
+        "larastan/larastan": "^2.9",
         "laravel/pint": "^1.15",
         "mockery/mockery": "^1.5",
-        "phpunit/phpunit": "^9.5"
+        "orchestra/testbench": "^9.0.0",
+        "pestphp/pest": "^3.5",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.4"
     },
     "autoload": {
         "psr-4": {
@@ -41,7 +47,8 @@
     "scripts": {
         "test": "phpunit",
         "check-style": "pint --test",
-        "fix-style": "pint"
+        "fix-style": "pint",
+        "analyse": "phpstan analyse"
     },
     "extra": {
         "branch-alias": {
@@ -54,7 +61,11 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

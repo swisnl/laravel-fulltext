@@ -9,9 +9,9 @@ class IndexerTest extends AbstractTestCase
 {
     public function testIndexModel()
     {
-        $indexer = new Indexer();
+        $indexer = new Indexer;
         $model = \Mockery::mock(TestModel::class);
-        $model->shouldReceive('indexRecord');
+        $model->shouldReceive('indexRecord')->once();
         $indexer->indexModel($model);
     }
 }

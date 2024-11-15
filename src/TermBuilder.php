@@ -2,17 +2,23 @@
 
 namespace Swis\Laravel\Fulltext;
 
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Config;
+
 class TermBuilder
 {
-    public static function terms($search)
+    /**
+     * @return Collection<int, non-falsy-string>
+     */
+    public static function terms(string $search): Collection
     {
-        $wildcards = config('laravel-fulltext.enable_wildcards');
+        $wildcards = Config::get('laravel-fulltext.enable_wildcards');
 
         // Remove every boolean operator (+, -, > <, ( ), ~, *, ", @distance) from the search query
         // else we will break the MySQL query.
-        $search = trim(preg_replace('/[+\-><\(\)~*\"@]+/', ' ', $search));
+        $search = trim(preg_replace('/[+\-><\(\)~*\"@]+/', ' ', $search) ?: '');
 
-        $terms = collect(preg_split('/[\s,]+/', $search));
+        $terms = collect(preg_split('/[\s,]+/', $search) ?: [])->filter();
 
         if ($wildcards === true) {
             $terms->transform(function ($term) {
