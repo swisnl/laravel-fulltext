@@ -27,7 +27,7 @@ Add the ``Indexable`` trait to the model you want to have indexed and define the
 #### Example
 
 ```php
-class Country extends Model
+class Country extends Model implements \Swis\Laravel\Fulltext\Contracts\Indexable
 {
 
     use \Swis\Laravel\Fulltext\Concerns\HasIndexation;
@@ -81,6 +81,10 @@ Choose the database connection to use, defaults to the default database connecti
 ### weight.title weight.content
 
 Results on ``title`` or ``content`` are weighted in the results. Search result score is multiplied by the weight in this config.
+
+### limit_results
+
+Limit the amount of results returned after searching. Use `0` for no limit.
 
 ### enable_wildcards
 
