@@ -19,7 +19,7 @@ class IndexedRecord extends Model
      */
     public function __construct(array $attributes = [])
     {
-        $this->connection = Config::get('laravel-fulltext.db_connection');
+        $this->connection = Config::string('laravel-fulltext.db_connection');
 
         parent::__construct($attributes);
     }

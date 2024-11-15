@@ -3,6 +3,7 @@
 namespace Swis\Laravel\Fulltext\Commands;
 
 use Illuminate\Console\Command;
+use InvalidArgumentException;
 use Swis\Laravel\Fulltext\Indexer;
 
 class Index extends Command
@@ -21,8 +22,13 @@ class Index extends Command
      */
     public function handle(): int
     {
+        $modelClass = $this->argument('model_class');
+        if (!is_string($modelClass)) {
+            throw new InvalidArgumentException('Model class must be a string');
+        }
+
         $indexer = new Indexer;
-        $indexer->indexAllByClass($this->argument('model_class'));
+        $indexer->indexAllByClass($modelClass);
 
         return self::SUCCESS;
     }

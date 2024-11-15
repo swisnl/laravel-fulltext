@@ -3,6 +3,7 @@
 namespace Swis\Laravel\Fulltext\Commands;
 
 use Illuminate\Console\Command;
+use InvalidArgumentException;
 use Swis\Laravel\Fulltext\Indexer;
 
 class UnindexOne extends Command
@@ -21,8 +22,18 @@ class UnindexOne extends Command
      */
     public function handle(): int
     {
+        $modelClass = $this->argument('model_class');
+        if (!is_string($modelClass)) {
+            throw new InvalidArgumentException('Model class must be a string');
+        }
+
+        $id = $this->argument('id');
+        if (!is_string($id)) {
+            throw new InvalidArgumentException('ID must be a string or an integer');
+        }
+
         $indexer = new Indexer;
-        $indexer->unIndexOneByClass($this->argument('model_class'), $this->argument('id'));
+        $indexer->unIndexOneByClass($modelClass, $id);
 
         return self::SUCCESS;
     }

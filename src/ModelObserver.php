@@ -9,7 +9,7 @@ class ModelObserver
     /**
      * The class names that syncing is disabled for.
      *
-     * @var list<string>
+     * @var array<string, bool>
      */
     protected static array $syncingDisabledFor = [];
 
