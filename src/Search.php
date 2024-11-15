@@ -18,8 +18,8 @@ class Search implements SearchInterface
 
     public function runForClass(string $search, string $class): Collection
     {
-        if (!is_subclass_of($class, Model::class)) {
-            return new Collection();
+        if (! is_subclass_of($class, Model::class)) {
+            return new Collection;
         }
 
         $query = $this->searchQuery($search);

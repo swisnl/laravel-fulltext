@@ -14,7 +14,7 @@ class Indexer
 
     public function unIndexOneByClass(string $class, string|int $id): void
     {
-        if (!is_subclass_of($class, Model::class)) {
+        if (! is_subclass_of($class, Model::class)) {
             return;
         }
 
@@ -29,7 +29,7 @@ class Indexer
 
     public function indexOneByClass(string $class, string|int $id): void
     {
-        if (!is_subclass_of($class, Model::class)) {
+        if (! is_subclass_of($class, Model::class)) {
             return;
         }
 
@@ -41,7 +41,7 @@ class Indexer
 
     public function indexAllByClass(string $class): void
     {
-        if (!is_subclass_of($class, Model::class)) {
+        if (! is_subclass_of($class, Model::class)) {
             return;
         }
 

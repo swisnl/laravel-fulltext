@@ -23,12 +23,12 @@ class IndexOne extends Command
     public function handle(): int
     {
         $modelClass = $this->argument('model_class');
-        if (!is_string($modelClass)) {
+        if (! is_string($modelClass)) {
             throw new InvalidArgumentException('Model class must be a string');
         }
 
         $id = $this->argument('id');
-        if (!is_string($id)) {
+        if (! is_string($id)) {
             throw new InvalidArgumentException('ID must be a string or an integer');
         }
 

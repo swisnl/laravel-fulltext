@@ -23,7 +23,7 @@ class Index extends Command
     public function handle(): int
     {
         $modelClass = $this->argument('model_class');
-        if (!is_string($modelClass)) {
+        if (! is_string($modelClass)) {
             throw new InvalidArgumentException('Model class must be a string');
         }
 

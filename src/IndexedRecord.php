@@ -21,7 +21,7 @@ class IndexedRecord extends Model
     {
         $connection = Config::get('laravel-fulltext.db_connection');
 
-        if (!is_string($connection)) {
+        if (! is_string($connection)) {
             $connection = null;
         }
 
