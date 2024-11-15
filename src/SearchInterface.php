@@ -4,9 +4,9 @@ namespace Swis\Laravel\Fulltext;
 
 interface SearchInterface
 {
-    public function run($search);
+    public function run(string $search);
 
-    public function runForClass($search, $class);
+    public function runForClass(string $search, string $class);
 
-    public function searchQuery($search);
+    public function searchQuery(string $search);
 }

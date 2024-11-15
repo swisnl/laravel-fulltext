@@ -2,13 +2,15 @@
 
 namespace Swis\Laravel\Fulltext;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 
 class Search implements SearchInterface
 {
     /**
      * @param  string  $search
-     * @return \Illuminate\Database\Eloquent\Collection|\Swis\Laravel\Fulltext\IndexedRecord[]
+     * @return \Illuminate\Database\Eloquent\Collection<Model>
      */
     public function run($search)
     {
@@ -18,11 +20,9 @@ class Search implements SearchInterface
     }
 
     /**
-     * @param  string  $search
-     * @param  string  $class
-     * @return \Illuminate\Database\Eloquent\Collection|\Swis\Laravel\Fulltext\IndexedRecord[]
+     * @return \Illuminate\Database\Eloquent\Collection<Model>
      */
-    public function runForClass($search, $class)
+    public function runForClass(string $search, string $class)
     {
         $query = $this->searchQuery($search);
         $query->where('indexable_type', (new $class)->getMorphClass());
@@ -30,11 +30,7 @@ class Search implements SearchInterface
         return $query->get();
     }
 
-    /**
-     * @param  string  $search
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function searchQuery($search)
+    public function searchQuery(string $search): Builder
     {
         $termsBool = '';
         $termsMatch = '';
