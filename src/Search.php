@@ -42,8 +42,8 @@ class Search implements SearchInterface
             $termsMatch = ''.$terms->implode(' ');
         }
 
-        $titleWeight = str_replace(',', '.', (float) Config::get('laravel-fulltext.weight.title', 1.5));
-        $contentWeight = str_replace(',', '.', (float) Config::get('laravel-fulltext.weight.content', 1.0));
+        $titleWeight = str_replace(',', '.', sprintf('%f', Config::get('laravel-fulltext.weight.title', 1.5)));
+        $contentWeight = str_replace(',', '.', sprintf('%f', Config::get('laravel-fulltext.weight.content', 1.0)));
 
         $query = IndexedRecord::query()
             ->whereRaw('MATCH (indexed_title, indexed_content) AGAINST (? IN BOOLEAN MODE)', [$termsBool])

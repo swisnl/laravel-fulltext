@@ -2,42 +2,37 @@
 
 namespace Swis\Laravel\Fulltext;
 
+use Swis\Laravel\Fulltext\Contracts\Indexable;
+
 class ModelObserver
 {
     /**
      * The class names that syncing is disabled for.
      *
-     * @var array
+     * @var list<string>
      */
-    protected static $syncingDisabledFor = [];
+    protected static array $syncingDisabledFor = [];
 
     /**
      * Enable syncing for the given class.
-     *
-     * @param  string  $class
      */
-    public static function enableSyncingFor($class)
+    public static function enableSyncingFor(string $class): void
     {
         unset(static::$syncingDisabledFor[$class]);
     }
 
     /**
      * Disable syncing for the given class.
-     *
-     * @param  string  $class
      */
-    public static function disableSyncingFor($class)
+    public static function disableSyncingFor(string $class): void
     {
         static::$syncingDisabledFor[$class] = true;
     }
 
     /**
      * Determine if syncing is disabled for the given class or model.
-     *
-     * @param  object|string  $class
-     * @return bool
      */
-    public static function syncingDisabledFor($class)
+    public static function syncingDisabledFor(string|object $class): bool
     {
         $class = is_object($class) ? get_class($class) : $class;
 
@@ -46,10 +41,8 @@ class ModelObserver
 
     /**
      * Handle the created event for the model.
-     *
-     * @param  \Swis\Laravel\Fulltext\Contracts\Indexable  $model
      */
-    public function created($model)
+    public function created(Indexable $model): void
     {
         if (static::syncingDisabledFor($model)) {
             return;
@@ -60,20 +53,16 @@ class ModelObserver
 
     /**
      * Handle the updated event for the model.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function updated($model)
+    public function updated(Indexable $model): void
     {
         $this->created($model);
     }
 
     /**
      * Handle the deleted event for the model.
-     *
-     * @param  \Swis\Laravel\Fulltext\Contracts\Indexable  $model
      */
-    public function deleted($model)
+    public function deleted(Indexable $model): void
     {
         if (static::syncingDisabledFor($model)) {
             return;
@@ -84,10 +73,8 @@ class ModelObserver
 
     /**
      * Handle the restored event for the model.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function restored($model)
+    public function restored(Indexable $model): void
     {
         $this->created($model);
     }
