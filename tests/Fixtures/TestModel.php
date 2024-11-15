@@ -7,7 +7,7 @@ use Swis\Laravel\Fulltext\Contracts\Indexable;
 
 class TestModel extends Model implements Indexable
 {
-    use \Swis\Laravel\Fulltext\Concerns\Indexable;
+    use \Swis\Laravel\Fulltext\Concerns\HasIndexation;
 
     public $id = 1;
 

@@ -2,11 +2,11 @@
 
 namespace Swis\Laravel\Fulltext\Tests\Fixtures;
 
-use Swis\Laravel\Fulltext\Concerns\Indexable;
+use Swis\Laravel\Fulltext\Concerns\HasIndexation;
 
 class IndexableTestModel extends TestModel
 {
-    use Indexable;
+    use HasIndexation;
 
     public $indexRecord;
 }

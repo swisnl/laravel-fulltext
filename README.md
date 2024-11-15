@@ -30,7 +30,7 @@ Add the ``Indexable`` trait to the model you want to have indexed and define the
 class Country extends Model
 {
 
-    use \Swis\Laravel\Fulltext\Concerns\Indexable;
+    use \Swis\Laravel\Fulltext\Concerns\HasIndexation;
 
     protected $indexContentColumns = ['biographies.name', 'political_situation', 'elections'];
     protected $indexTitleColumns = ['name', 'governmental_type'];

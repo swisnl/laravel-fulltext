@@ -9,7 +9,7 @@ use Swis\Laravel\Fulltext\ModelObserver;
 /**
  * @property IndexedRecord|null $indexedRecord
  */
-trait Indexable
+trait HasIndexation
 {
     /**
      * Boot the trait.
@@ -21,12 +21,12 @@ trait Indexable
 
     public function getIndexContent(): string
     {
-        return $this->getIndexDataFromColumns($this->indexContentColumns);
+        return $this->getIndexDataFromColumns($this->indexContentColumns ?? []);
     }
 
     public function getIndexTitle(): string
     {
-        return $this->getIndexDataFromColumns($this->indexTitleColumns);
+        return $this->getIndexDataFromColumns($this->indexTitleColumns ?? []);
     }
 
     /**
