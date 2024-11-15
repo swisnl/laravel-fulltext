@@ -19,9 +19,11 @@ class Index extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
         $indexer = new Indexer;
         $indexer->indexAllByClass($this->argument('model_class'));
+
+        return self::SUCCESS;
     }
 }

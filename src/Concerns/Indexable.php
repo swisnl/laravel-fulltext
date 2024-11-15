@@ -2,6 +2,7 @@
 
 namespace Swis\Laravel\Fulltext\Concerns;
 
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Swis\Laravel\Fulltext\IndexedRecord;
 use Swis\Laravel\Fulltext\ModelObserver;
 
@@ -28,7 +29,10 @@ trait Indexable
         return $this->getIndexDataFromColumns($this->indexTitleColumns);
     }
 
-    public function indexedRecord()
+    /**
+     * @return MorphOne<IndexedRecord, \Swis\Laravel\Fulltext\Contracts\Indexable>
+     */
+    public function indexedRecord(): MorphOne
     {
         return $this->morphOne(IndexedRecord::class, 'indexable');
     }

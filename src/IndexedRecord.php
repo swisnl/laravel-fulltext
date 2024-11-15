@@ -14,6 +14,9 @@ class IndexedRecord extends Model
 {
     protected $table = 'laravel_fulltext';
 
+    /**
+     * @param  array<array-key, mixed>  $attributes
+     */
     public function __construct(array $attributes = [])
     {
         $this->connection = Config::get('laravel-fulltext.db_connection');
@@ -21,6 +24,9 @@ class IndexedRecord extends Model
         parent::__construct($attributes);
     }
 
+    /**
+     * @return MorphTo<Model, $this>
+     */
     public function indexable(): MorphTo
     {
         return $this->morphTo();

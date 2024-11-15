@@ -2,11 +2,23 @@
 
 namespace Swis\Laravel\Fulltext;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
+
 interface SearchInterface
 {
-    public function run(string $search);
+    /**
+     * @return Collection<int, IndexedRecord>
+     */
+    public function run(string $search): Collection;
 
-    public function runForClass(string $search, string $class);
+    /**
+     * @return Collection<int, IndexedRecord>
+     */
+    public function runForClass(string $search, string $class): Collection;
 
-    public function searchQuery(string $search);
+    /**
+     * @return Builder<IndexedRecord>
+     */
+    public function searchQuery(string $search): Builder;
 }

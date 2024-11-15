@@ -3,26 +3,19 @@
 namespace Swis\Laravel\Fulltext;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 
 class Search implements SearchInterface
 {
-    /**
-     * @param  string  $search
-     * @return \Illuminate\Database\Eloquent\Collection<Model>
-     */
-    public function run($search)
+    public function run(string $search): Collection
     {
         $query = $this->searchQuery($search);
 
         return $query->get();
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Collection<Model>
-     */
-    public function runForClass(string $search, string $class)
+    public function runForClass(string $search, string $class): Collection
     {
         $query = $this->searchQuery($search);
         $query->where('indexable_type', (new $class)->getMorphClass());
@@ -39,7 +32,7 @@ class Search implements SearchInterface
             $terms = TermBuilder::terms($search);
 
             $termsBool = '+'.$terms->implode(' +');
-            $termsMatch = ''.$terms->implode(' ');
+            $termsMatch = $terms->implode(' ');
         }
 
         $titleWeight = str_replace(',', '.', sprintf('%f', Config::get('laravel-fulltext.weight.title', 1.5)));

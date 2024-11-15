@@ -9,7 +9,10 @@ use Swis\Laravel\Fulltext\Commands\UnindexOne;
 
 class FulltextServiceProvider extends ServiceProvider
 {
-    protected $commands = [
+    /**
+     * @var array<string>
+     */
+    protected array $commands = [
         Index::class,
         IndexOne::class,
         UnindexOne::class,
@@ -18,7 +21,7 @@ class FulltextServiceProvider extends ServiceProvider
     /**
      * Register the service provider.
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(
             __DIR__.'/../config/laravel-fulltext.php',

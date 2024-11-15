@@ -11,7 +11,7 @@ class Indexer
         $indexable->indexRecord();
     }
 
-    public function unIndexOneByClass($class, $id)
+    public function unIndexOneByClass(string $class, string|int $id): void
     {
         $record = IndexedRecord::query()
             ->where('indexable_id', $id)->where('indexable_type', (new $class)->getMorphClass());
@@ -21,7 +21,7 @@ class Indexer
         }
     }
 
-    public function indexOneByClass($class, $id)
+    public function indexOneByClass(string $class, string|int $id): void
     {
         $model = call_user_func([$class, 'find'], $id);
         if (in_array(Indexable::class, class_uses($model), true)) {
@@ -29,7 +29,7 @@ class Indexer
         }
     }
 
-    public function indexAllByClass($class)
+    public function indexAllByClass(string $class): void
     {
         $model = new $class;
         $self = $this;

@@ -19,9 +19,11 @@ class IndexOne extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
         $indexer = new Indexer;
         $indexer->indexOneByClass($this->argument('model_class'), $this->argument('id'));
+
+        return self::SUCCESS;
     }
 }
