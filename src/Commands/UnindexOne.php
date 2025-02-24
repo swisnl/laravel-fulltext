@@ -21,7 +21,7 @@ class UnindexOne extends Command
      */
     public function handle()
     {
-        $indexer = new Indexer();
+        $indexer = new Indexer;
         $indexer->unIndexOneByClass($this->argument('model_class'), $this->argument('id'));
     }
 }

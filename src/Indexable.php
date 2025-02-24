@@ -12,7 +12,7 @@ trait Indexable
      */
     public static function bootIndexable()
     {
-        static::observe(new ModelObserver());
+        static::observe(new ModelObserver);
     }
 
     public function getIndexContent()
@@ -33,7 +33,7 @@ trait Indexable
     public function indexRecord()
     {
         if ($this->indexedRecord === null) {
-            $this->indexedRecord = new IndexedRecord();
+            $this->indexedRecord = new IndexedRecord;
             $this->indexedRecord->indexable()->associate($this);
         }
         $this->indexedRecord->updateIndex();

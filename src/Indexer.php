@@ -13,7 +13,7 @@ class Indexer
 
     public function unIndexOneByClass($class, $id)
     {
-        $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', (new $class())->getMorphClass());
+        $record = IndexedRecord::where('indexable_id', $id)->where('indexable_type', (new $class)->getMorphClass());
         if ($record->exists) {
             $record->delete();
         }
@@ -29,7 +29,7 @@ class Indexer
 
     public function indexAllByClass($class)
     {
-        $model = new $class();
+        $model = new $class;
         $self = $this;
         if (in_array(Indexable::class, class_uses($model), true)) {
             $model->chunk(100, function ($chunk) use ($self) {

@@ -23,7 +23,7 @@ class Search implements SearchInterface
     public function runForClass($search, $class)
     {
         $query = $this->searchQuery($search);
-        $query->where('indexable_type', (new $class())->getMorphClass());
+        $query->where('indexable_type', (new $class)->getMorphClass());
 
         return $query->get();
     }

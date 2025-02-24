@@ -6,42 +6,42 @@ use Swis\Laravel\Fulltext\ModelObserver;
 
 class ModelObserverTest extends AbstractTestCase
 {
-    public function testCreatedHandlerIndexesModel()
+    public function test_created_handler_indexes_model()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('indexRecord');
         $observer->created($model);
     }
 
-    public function testCreatedHandlerDoesntIndexModelWhenDisabled()
+    public function test_created_handler_doesnt_index_model_when_disabled()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $observer->disableSyncingFor(get_class($model));
         $model->shouldReceive('indexRecord')->never();
         $observer->created($model);
     }
 
-    public function testUpdatedHandlerIndexesModel()
+    public function test_updated_handler_indexes_model()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('indexRecord');
         $observer->updated($model);
     }
 
-    public function testDeletedHandlerMakesUnindexesModel()
+    public function test_deleted_handler_makes_unindexes_model()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('unIndexRecord');
         $observer->deleted($model);
     }
 
-    public function testRestoredHandlerIndexesModel()
+    public function test_restored_handler_indexes_model()
     {
-        $observer = new ModelObserver();
+        $observer = new ModelObserver;
         $model = \Mockery::mock();
         $model->shouldReceive('indexRecord');
         $observer->restored($model);

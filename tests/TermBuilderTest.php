@@ -6,7 +6,7 @@ use Swis\Laravel\Fulltext\TermBuilder;
 
 class TermBuilderTest extends AbstractTestCase
 {
-    public function testTermbuilderBuildsTermsArray()
+    public function test_termbuilder_builds_terms_array()
     {
         global $configReturn;
         $configReturn = false;
@@ -17,7 +17,7 @@ class TermBuilderTest extends AbstractTestCase
         $this->assertCount(0, $diff);
     }
 
-    public function testTermbuilderDoesNotBuildEmptyTerms()
+    public function test_termbuilder_does_not_build_empty_terms()
     {
         global $configReturn;
         $configReturn = false;
@@ -29,7 +29,7 @@ class TermBuilderTest extends AbstractTestCase
         $this->assertCount(0, $diff);
     }
 
-    public function testTermbuilderBuildsTermsArrayWithWildcard()
+    public function test_termbuilder_builds_terms_array_with_wildcard()
     {
         global $configReturn;
         $configReturn = true;
