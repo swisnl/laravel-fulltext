@@ -8,6 +8,12 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 * Nothing.
 
+## [0.23.2] - 2026-03-13
+
+### Added
+
+* Added support for Laravel 13 [#38](https://github.com/swisnl/laravel-fulltext/pull/38).
+
 ## [0.23.1] - 2025-02-24
 
 ### Added
