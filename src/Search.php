@@ -2,11 +2,14 @@
 
 namespace Swis\Laravel\Fulltext;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+
 class Search implements SearchInterface
 {
     /**
      * @param  string  $search
-     * @return \Illuminate\Database\Eloquent\Collection|\Swis\Laravel\Fulltext\IndexedRecord[]
+     * @return Collection|IndexedRecord[]
      */
     public function run($search)
     {
@@ -18,7 +21,7 @@ class Search implements SearchInterface
     /**
      * @param  string  $search
      * @param  string  $class
-     * @return \Illuminate\Database\Eloquent\Collection|\Swis\Laravel\Fulltext\IndexedRecord[]
+     * @return Collection|IndexedRecord[]
      */
     public function runForClass($search, $class)
     {
@@ -30,7 +33,7 @@ class Search implements SearchInterface
 
     /**
      * @param  string  $search
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function searchQuery($search)
     {
