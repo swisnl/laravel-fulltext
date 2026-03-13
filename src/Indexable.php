@@ -12,9 +12,14 @@ trait Indexable
      */
     public static function bootIndexable()
     {
-        static::whenBooted(static function () {
+        // Check for Laravel >= 12.8 support
+        if (method_exists(self::class, 'whenBooted')) {
+            static::whenBooted(static function () {
+                static::observe(new ModelObserver);
+            });
+        } else {
             static::observe(new ModelObserver);
-        });
+        }
     }
 
     public function getIndexContent()
