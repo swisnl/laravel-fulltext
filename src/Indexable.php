@@ -12,7 +12,9 @@ trait Indexable
      */
     public static function bootIndexable()
     {
-        static::observe(new ModelObserver);
+        static::whenBooted(static function () {
+            static::observe(new ModelObserver);
+        });
     }
 
     public function getIndexContent()
